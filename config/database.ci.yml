@@ -10,4 +10,4 @@ default: &default
   password:
 test:
   <<: *default
-  database: circle_test
+  database: circleci_tweet_picker
