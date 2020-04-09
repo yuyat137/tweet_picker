@@ -15,6 +15,8 @@ gem 'slim-rails'
 gem 'html2slim'
 gem 'rubocop', require: false
 gem 'rails_best_practices'
+gem 'bootstrap'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
