@@ -28,3 +28,6 @@ Twitterにおいて、人気ツイートを厳選して提供するアプリケ�
 
 ## 画面遷移図
 https://xd.adobe.com/view/34c06503-bd17-47b4-7395-fd79cc849196-42f1/grid
+
+#＃テーブル設計
+https://drive.google.com/file/d/1dhXuY7KDbgQyH_fyBG8UH80YF4kmwn5M/view?usp=sharing
