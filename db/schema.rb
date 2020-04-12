@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_12_012618) do
+ActiveRecord::Schema.define(version: 2020_04_12_080921) do
 
   create_table "authentications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id"
@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 2020_04_12_012618) do
     t.string "uid", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "encrypted_access_token"
+    t.string "encrypted_access_token_iv"
+    t.string "encrypted_access_token_secret"
+    t.string "encrypted_access_token_secret_iv"
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
     t.index ["user_id"], name: "index_authentications_on_user_id"
   end
