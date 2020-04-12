@@ -1,0 +1,2 @@
+class TwitterList < ApplicationRecord
+end
