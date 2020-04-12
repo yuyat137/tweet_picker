@@ -27,7 +27,7 @@ Twitterにおいて、人気ツイートを厳選して提供するアプリケ�
 - 芸能人などのリストを作ってるが、ツイートの量が膨大すぎて追えない人
 
 ## 画面遷移図
-https://xd.adobe.com/view/34c06503-bd17-47b4-7395-fd79cc849196-42f1/grid
+https://xd.adobe.com/view/56ed9f7d-e81b-4da5-6bb0-eeae31e9e7a7-20dc/grid
 
 ## テーブル設計
 https://drive.google.com/file/d/1dhXuY7KDbgQyH_fyBG8UH80YF4kmwn5M/view?usp=sharing
