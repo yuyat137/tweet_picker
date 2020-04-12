@@ -6,7 +6,7 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.key = Rails.application.credentials.dig(:twitter, :api_key)
   config.twitter.secret = Rails.application.credentials.dig(:twitter, :api_secret_key)
   config.twitter.callback_url = 'http://localhost:3000/oauth/callback?provider=twitter'
-  config.twitter.user_info_mapping = {:email => 'screen_name'}
+  config.twitter.user_info_mapping = { email: 'screen_name' }
 
   config.user_config do |user|
     user.stretches = 1 if Rails.env.test?
