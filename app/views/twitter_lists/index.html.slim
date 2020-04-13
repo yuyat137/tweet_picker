@@ -1,0 +1,6 @@
+.text-center.mt-5
+  p リストを選択してください
+  table.mx-auto
+    - @lists.each do |list|
+      tr
+        td.text-left = link_to(list.name, twitter_list_path(list.id))

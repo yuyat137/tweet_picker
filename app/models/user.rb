@@ -3,8 +3,8 @@ class User < ApplicationRecord
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
 
-  def twitter_rest_client
-    @twitter_rest_client ||= Twitter::REST::Client.new do |config|
+  def twitter
+    @twitter ||= Twitter::REST::Client.new do |config|
       authentication = authentications.find_by(provider: 'twitter')
       config.consumer_key        = Rails.application.credentials.dig(:twitter, :api_key)
       config.consumer_secret     = Rails.application.credentials.dig(:twitter, :api_secret_key)

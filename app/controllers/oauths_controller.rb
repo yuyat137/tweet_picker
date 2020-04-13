@@ -9,7 +9,7 @@ class OauthsController < ApplicationController
     provider = params[:provider]
     @user = login_from(provider)
     if @user
-      redirect_to root_path, notice: "Logged in from #{provider.titleize}!"
+      redirect_to twitter_lists_path, notice: "Logged in from #{provider.titleize}!"
     else
       begin
         @user = create_from(provider)
@@ -21,7 +21,7 @@ class OauthsController < ApplicationController
 
         reset_session
         auto_login(@user)
-        redirect_to root_path, notice: "Logged in from #{provider.titleize}!"
+        redirect_to twitter_lists_path, notice: "Logged in from #{provider.titleize}!"
       rescue StandardError
         redirect_to root_path, alert: "Failed to login from #{provider.titleize}!"
       end
