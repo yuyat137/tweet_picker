@@ -1,7 +1,6 @@
 class TwitterListsController < ApplicationController
   def index
-    # NOTE: current_user.twitter_listsとすると該当ユーザーの最新情報を取得できないため、下記の書き方をした
-    @twitter_lists = User.find(current_user.id).twitter_lists
+    @twitter_lists = current_user.twitter_lists
   end
 
   def show
@@ -10,7 +9,7 @@ class TwitterListsController < ApplicationController
   end
 
   def update_index
-    # TODO: 今後、jsで作成したい
+    # TODO: 今後、できればjsで作成したい
     current_user.update_twitter_lists
     redirect_to twitter_lists_path
   end
