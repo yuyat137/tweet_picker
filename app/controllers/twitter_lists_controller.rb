@@ -6,7 +6,7 @@ class TwitterListsController < ApplicationController
 
   def show
     list = current_user.twitter_lists.find(params[:id])
-    @tweets = current_user.twitter.list_timeline(list.list_id, count: 200).max_by(50){ |x| x.favorite_count }
+    @tweets = current_user.twitter.list_timeline(list.list_id, count: 200).max_by(50, &:favorite_count)
   end
 
   def update_index
