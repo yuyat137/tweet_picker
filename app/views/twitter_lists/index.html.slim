@@ -4,5 +4,5 @@
     - @twitter_lists.each do |list|
       tr
         td.text-left = link_to(list.list_name, twitter_list_path(list.id))
-.text-center
+.text-center.mt-5
   = link_to('リストを読み込む', twitter_lists_update_index_path, class:'btn btn-primary')
