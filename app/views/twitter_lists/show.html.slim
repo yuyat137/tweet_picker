@@ -1,0 +1,7 @@
+.row
+  - @tweets.each do |tweet|
+    - if not tweet.user.protected?
+      .embed-twitter.tweet-style
+        blockquote.twitter-tweet
+          = link_to('', 'https://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id.to_s)
+        script src='https://platform.twitter.com/widgets.js'

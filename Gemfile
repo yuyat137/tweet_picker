@@ -20,6 +20,8 @@ gem 'jquery-rails'
 gem 'sorcery'
 gem 'pry-byebug'
 gem 'attr_encrypted'
+gem 'twitter'
+gem 'activerecord-import'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

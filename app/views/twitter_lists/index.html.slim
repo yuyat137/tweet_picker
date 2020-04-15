@@ -1,0 +1,8 @@
+.text-center.mt-5
+  h2 リストを選択してください
+  table.mx-auto.mt-5
+    - @twitter_lists.each do |list|
+      tr.list-row
+        td.text-left = link_to(list.list_name, twitter_list_path(list.id))
+.text-center.mt-5
+  = link_to('リスト情報を最新にする', twitter_lists_update_index_path, class:'btn btn-primary')
