@@ -1,6 +1,8 @@
 .text-center.mt-5
   p リストを選択してください
-  table.mx-auto
-    - @lists.each do |list|
+  table.mx-auto.mt-5
+    - @twitter_lists.each do |list|
       tr
-        td.text-left = link_to(list.name, twitter_list_path(list.id))
+        td.text-left = link_to(list.list_name, twitter_list_path(list.id))
+.text-center
+  = link_to('リストを読み込む', twitter_lists_update_index_path, class:'btn btn-primary')
