@@ -1,8 +1,15 @@
-#tweet_list.ml-5.mr-5
-  .row
-    - @tweets.each do |tweet|
-      - if not tweet.user.protected?
-        .embed-twitter.col-4
-          blockquote.twitter-tweet
-            = link_to('', 'https://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id.to_s)
-          script src='https://platform.twitter.com/widgets.js'
+script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js'
+javascript:
+  $(function(){
+    setInterval(function () {
+      $('#tweet_list').masonry();
+    }, 200);
+  });
+#tweet_list.grid.ml-5.mr-5
+  - @tweets.each do |tweet|
+    - if not tweet.user.protected?
+      .embed-twitter.tweet-style
+        blockquote.twitter-tweet
+          / TODO: この書き方だと、リストの人がRTしたツイートはどうなるのか調査
+          = link_to('', 'https://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id.to_s)
+        script src='https://platform.twitter.com/widgets.js'
