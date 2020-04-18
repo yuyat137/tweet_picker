@@ -4,7 +4,7 @@ class TwitterListsController < ApplicationController
   end
 
   def show
-    list = current_user.twitter_lists.find(params[:id])
+    list = current_user.twitter_lists.find_by(access_id: params[:access_id])
     @tweets = current_user.twitter.list_timeline(list.list_id, count: 200).max_by(50, &:favorite_count)
   end
 
