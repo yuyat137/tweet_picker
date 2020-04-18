@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'twitter_lists#index'
+  root 'user_sessions#new'
   get 'oauth/callback' => 'oauths#callback'
   get 'oauth/:provider' => 'oauths#oauth', :as => :auth_at_provider
   get 'twitter_lists/update_index' => 'twitter_lists#update_index'
