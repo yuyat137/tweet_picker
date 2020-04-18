@@ -18,7 +18,7 @@ class User < ApplicationRecord
     temp_lists = twitter.lists
     new_twitter_lists = []
     temp_lists.each do |list|
-      new_twitter_lists << TwitterList.new(list_id: list.id, list_name: list.name)
+      new_twitter_lists << TwitterList.new(list_id: list.id, list_name: list.name, access_id: SecureRandom.base58(TwitterList::ACCESS_ID_MAX_LENGTH))
     end
     twitter_lists.destroy_all
     twitter_lists.import new_twitter_lists
