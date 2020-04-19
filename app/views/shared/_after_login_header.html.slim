@@ -8,7 +8,7 @@ header
       ul.navbar-nav
         li.nav-item
           = link_to '説明', '#', class:'nav-link nav-item-style ml-3'
-        li.nav-item.dropdown.mr-3
-          = link_to image_tag(current_user.profile_image_url), '#', class:'nav-link dropdown-toggle ml-3', 'data-toggle':'dropdown', 'aria-haspopup':'true', 'aria-expanded':'false'
-          .dropdown-menu.dropdown-menu-right aria-labelledby='navbarDropdownMenuLink'
-            = link_to 'ログアウト', logout_path, class:'dropdown-item'
+        li.nav-item
+          = link_to 'ログアウト', logout_path, class:'nav-link nav-item-style ml-3 mb-3'
+        li.nav-item
+          = image_tag(current_user.profile_image_url, class:'nav-link ml-3')
