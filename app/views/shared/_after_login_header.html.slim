@@ -1,1 +1,11 @@
-= link_to 'ログアウト', logout_path
+header
+  nav.navbar.navbar-expand-lg.navbar-light.nav-header-color.bg-primary.p-0#nav-style
+    .container.m-0.nav-menu.h-100
+      = link_to 'Tweet Picker', twitter_lists_path, class:'navbar-brand align-middle', id:'app_title'
+      #navbarNavDropdown
+        .text-right
+          ul.navbar-nav
+            li.nav-item
+              = link_to '説明', '#', class:'nav-link'
+            li.nav-item
+              = link_to 'ログアウト', logout_path, class:'nav-link'
