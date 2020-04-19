@@ -2,4 +2,7 @@
   #app_description
     p.mt-5 アプリの説明文
 .text-center.mt-5
-  = link_to 'Twitterログイン', auth_at_provider_path(:provider => :twitter), class:'btn btn-info'
+  - if logged_in?
+    = link_to 'Twitterリストへ', twitter_lists_path, class:'btn btn-success'
+  - else
+    = link_to 'Twitterログイン', auth_at_provider_path(:provider => :twitter), class:'btn btn-info'
