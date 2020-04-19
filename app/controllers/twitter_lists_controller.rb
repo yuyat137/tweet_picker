@@ -5,7 +5,11 @@ class TwitterListsController < ApplicationController
 
   def show
     list = current_user.twitter_lists.find_by(access_id: params[:access_id])
-    @tweets = current_user.twitter.list_timeline(list.list_id, count: 200).max_by(50, &:favorite_count)
+    if list
+      @tweets = current_user.twitter.list_timeline(list.list_id, count: 200).max_by(50, &:favorite_count)
+    else
+      redirect_to twitter_lists_path, danger: 'リストを更新してください'
+    end
   end
 
   def update_index
