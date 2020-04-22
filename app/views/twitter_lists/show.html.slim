@@ -1,4 +1,6 @@
 script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js'
+.text-center.mt-5
+  h2 = @list_name
 #tweet_list.grid.ml-5.mr-5.mb-5
   - @tweets.each do |tweet|
     - if not tweet.user.protected?
