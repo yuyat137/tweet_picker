@@ -14,3 +14,6 @@ html
       = render 'shared/before_login_header'
     = render 'shared/flash_message'
     = yield
+    - if request.path.match('twitter_lists/.+')
+      = render 'shared/to_page_top'
+    = render 'shared/footer'

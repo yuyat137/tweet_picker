@@ -1,13 +1,44 @@
 #app_description {
-  height: 400px;
+  height: 300px;
   width: 400px;
   margin: auto;
   border: 1px solid blue;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#app_title {
+  font-size: 30px;
+  padding-top: 5px;
+}
+
+.nav-item-style {
+  padding-top: 20px;
+}
+
 .list-row {
   height: 40px;
 }
 
 .tweet-style {
   width: 33%;
+}
+
+#common_footer {
+  height: 60px;
+  width: 100%;
+  background-color: #89c7de;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#to_page_top {
+  font-size: 30px;
+  text-align: right;
 }
