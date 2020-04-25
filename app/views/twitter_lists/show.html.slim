@@ -1,6 +1,12 @@
 script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js'
 .text-center.mt-5
-  h2 = @list_name
+  h2 = @list.list_name
+.text-center
+  = form_with model: @tweets_form, url: twitter_list_path(@list.access_id), method: :get, local: true do |f|
+    = f.number_field :read_tweets_num
+    = f.number_field :display_tweets_type
+    = f.number_field :display_tweets_num
+    = f.submit '検索', class:'btn'
 #tweet_list.grid.ml-5.mr-5.mb-5
   - @tweets.each do |tweet|
     - if not tweet.user.protected?
