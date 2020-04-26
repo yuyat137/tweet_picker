@@ -53,7 +53,7 @@ module Enum
 
       # i18n対応のenum値一覧を確認できるクラスメソッドを定義
       hash_18n = {}
-      values.each do |key, value|
+      values.each do |key, _|
         hash_18n[key] = I18n.t("enums.tweets_form.#{attribute}.#{key}")
       end
       singleton_class.send(:define_method, attribute.to_s + 's_i18n', -> { hash_18n })
