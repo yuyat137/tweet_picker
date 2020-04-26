@@ -18,6 +18,7 @@ module TweetPicker
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}')]
     config.i18n.default_locale = :ja
+    config.time_zone = 'Tokyo'
 
     config.generators do |g|
       g.test_framework  false

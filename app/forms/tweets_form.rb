@@ -19,13 +19,14 @@ class TweetsForm
       tweets.concat(user.twitter.list_timeline(list.list_id, count: 200, max_id: old_tweet.id))
     end
 
+    load_period = [tweets.min_by(&:created_at).created_at.to_s(:datetime_jp), tweets.max_by(&:created_at).created_at.to_s(:datetime_jp)]
     tweets.select! { |x| x.retweet? == false }
 
     if (display_tweets_type != :all_tweets)
       tweets = filter_tweets_by_display_type(tweets)
     end
 
-    tweets.max_by((display_tweets_num_value + 1) * 50, &:favorite_count)
+    return tweets.max_by((display_tweets_num_value + 1) * 50, &:favorite_count), load_period
   end
 
   def filter_tweets_by_display_type(tweets)

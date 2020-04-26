@@ -7,7 +7,7 @@ class TwitterListsController < ApplicationController
     @tweets_form = TweetsForm.new(tweets_params)
     @list = current_user.twitter_lists.find_by(access_id: params[:access_id])
     if @list
-      @tweets = @tweets_form.search(@list, current_user)
+      @tweets, @load_period = @tweets_form.search(@list, current_user)
     else
       redirect_to twitter_lists_path, danger: 'リストを更新してください'
     end

@@ -1,6 +1,8 @@
 script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js'
 .text-center.mt-5
   h2 = @list.list_name
+  small#load_period = "#{@load_period[0]}から#{@load_period[1]}までのツイートを読み込みました"
+
 .text-center
   = form_with model: @tweets_form, url: twitter_list_path(@list.access_id), method: :get, local: true do |f|
     = f.select :read_tweets_num, TweetsForm.read_tweets_nums.keys.map { |k| [TweetsForm.read_tweets_nums_i18n[k], k]}
