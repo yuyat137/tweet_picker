@@ -14,29 +14,34 @@ class TweetsForm
 
   def search(list, user)
     tweets = user.twitter.list_timeline(list.list_id, count: 200)
-
     read_tweets_num_value.times do
-      tweets.concat(user.twitter.list_timeline(list.list_id, count: 200, max_id: tweets.last.id))
+      old_tweet = tweets.min_by(&:created_at)
+      tweets.concat(user.twitter.list_timeline(list.list_id, count: 200, max_id: old_tweet.id))
     end
 
     tweets.select! { |x| x.retweet? == false }
 
     if (display_tweets_type != :all_tweets)
-      tweets_per_user = {}
-      tweets.each do |tweet|
-        if tweets_per_user.include?(tweet.user.id)
-          tweets_per_user[tweet.user.id].push(tweet)
-        else
-          tweets_per_user[tweet.user.id] = [tweet]
-        end
-      end
-      tweets = []
-      tweets_per_user.each do |user_id, _|
-        tweets.concat(tweets_per_user[user_id].max_by(display_tweets_type_value){|x| x.favorite_count})
-      end
+      tweets = filter_tweets_by_display_type(tweets)
     end
 
     tweets.max_by((display_tweets_num_value + 1) * 50, &:favorite_count)
+  end
+
+  def filter_tweets_by_display_type(tweets)
+    tweets_per_user = {}
+    tweets.each do |tweet|
+      if tweets_per_user.include?(tweet.user.id)
+        tweets_per_user[tweet.user.id].push(tweet)
+      else
+        tweets_per_user[tweet.user.id] = [tweet]
+      end
+    end
+    tweets = []
+    tweets_per_user.each do |user_id, _|
+      tweets.concat(tweets_per_user[user_id].max_by(display_tweets_type_value, &:favorite_count))
+    end
+    tweets
   end
 end
 
