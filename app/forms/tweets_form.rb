@@ -1,20 +1,20 @@
 class TweetsForm
   include ActiveModel::Model
   include ActiveModel::Attributes
+  include Enum
 
-  # TODO: enumを設定する方法がわからなかったので、分かり次第対応
-  # NOTE: 0: 1日分のツイート、1: 200件、2: 400件、 3: 600件、 4: 800件
-  attribute :read_tweets_num, :integer, default: 1
-  # NOTE: 0: 総取得ツイートをお気に入り順、1: 1ユーザー1ツイート、　2: 1ユーザー2ツイート
-  attribute :display_tweets_type, :integer
-  # NOTE: 0: 50件、1: 100件、2: 150件
-  attribute :display_tweets_num, :integer
-  enum read_tweets_num: { hoge: 1, piyo: 2, fuga: 3 }
+  attribute :read_tweets_num, :integer, default: 0
+  attribute :display_tweets_type, :integer, default: 0
+  attribute :display_tweets_num, :integer, default: 0
+
+  enum read_tweets_num: { read_200: 0, read_400: 1, read_600: 2, read_800: 3, read_one_day: 4 }.freeze
+  enum display_tweets_type: { all_tweets: 0, one_per_one: 1, two_per_one: 2 }.freeze
+  enum display_tweets_num: { display_50: 0, display_100: 1, display_150: 2 }.freeze
 
   def search(list, user)
     tweets = user.twitter.list_timeline(list.list_id, count: 200)
 
-    (read_tweets_num - 1).times do
+    read_tweets_num_value.times do
       tweets.concat(user.twitter.list_timeline(list.list_id, count: 200, max_id: tweets.last.id))
     end
 
