@@ -19,6 +19,8 @@ class TweetsForm
       tweets.concat(user.twitter.list_timeline(list.list_id, count: 200, max_id: tweets.last.id))
     end
 
+    tweets.select! { |x| x.retweet? == false }
+
     if (display_tweets_type != :all_tweets)
       tweets_per_user = {}
       tweets.each do |tweet|
