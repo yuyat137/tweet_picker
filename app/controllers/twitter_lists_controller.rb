@@ -4,9 +4,10 @@ class TwitterListsController < ApplicationController
   end
 
   def show
-    list = current_user.twitter_lists.find_by(access_id: params[:access_id])
-    if list
-      @tweets = current_user.twitter.list_timeline(list.list_id, count: 200).max_by(50, &:favorite_count)
+    @tweets_form = TweetsForm.new(tweets_params)
+    @list = current_user.twitter_lists.find_by(access_id: params[:access_id])
+    if @list
+      @tweets, @load_period = @tweets_form.search(@list, current_user)
     else
       redirect_to twitter_lists_path, danger: 'リストを更新してください'
     end
@@ -16,5 +17,13 @@ class TwitterListsController < ApplicationController
     # TODO: 今後、できればjsで作成したい
     current_user.update_twitter_lists
     redirect_to twitter_lists_path
+  end
+
+  private
+
+  def tweets_params
+    return unless params[:tweets_form]
+
+    params.require(:tweets_form).permit(:read_tweets_num, :display_tweets_type, :display_tweets_num)
   end
 end

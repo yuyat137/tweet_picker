@@ -1,0 +1,16 @@
+ja:
+  enums:
+    tweets_form:
+      read_tweets_num:
+        read_200: 200件読み込む
+        read_400: 400件読み込む
+        read_600: 600件読み込む
+        read_800: 800件読み込む
+      display_tweets_type:
+        all_tweets:  指定なし
+        one_per_one: 1ツイート/人
+        two_per_one: 2ツイート/人
+      display_tweets_num:
+        display_50:  50件表示
+        display_100: 100件表示
+        display_150: 150件表示
