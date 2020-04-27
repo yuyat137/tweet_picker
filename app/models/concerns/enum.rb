@@ -52,11 +52,7 @@ module Enum
       singleton_class.send(:define_method, attribute.to_s + 's', -> { values })
 
       # i18n対応のenum値一覧を確認できるクラスメソッドを定義
-      hash_18n = {}
-      values.each do |key, _|
-        hash_18n[key] = I18n.t("enums.tweets_form.#{attribute}.#{key}")
-      end
-      singleton_class.send(:define_method, attribute.to_s + 's_i18n', -> { hash_18n })
+      singleton_class.send(:define_method, attribute.to_s + 's_i18n', -> { attributes_i18n(attribute, values) })
     end
 
     private
@@ -71,6 +67,14 @@ module Enum
       return false unless values.values.all? { |value| value.is_a?(Integer) }
 
       true
+    end
+
+    def attributes_i18n(attribute, values)
+      attributes_i18n = {}
+      values.each do |key, _|
+        attributes_i18n[key] = I18n.t("enums.tweets_form.#{attribute}.#{key}")
+      end
+      attributes_i18n
     end
   end
 end

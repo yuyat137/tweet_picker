@@ -13,6 +13,8 @@ Layout/MultilineBlockLayout:
 
 Metrics/AbcSize:
   Max: 35
+  Exclude:
+    - 'app/models/concerns/enum.rb'
 
 Metrics/BlockLength:
   Max: 30
