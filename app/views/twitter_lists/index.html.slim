@@ -4,5 +4,5 @@
     - @twitter_lists.each do |list|
       tr.list-row
         td.text-left = link_to(list.list_name, twitter_list_path(list.access_id))
-.text-center.mt-5
+.text-center.my-5
   = link_to('リスト情報を最新にする', twitter_lists_update_index_path, class:'btn btn-primary')
