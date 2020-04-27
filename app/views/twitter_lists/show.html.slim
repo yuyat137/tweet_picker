@@ -9,7 +9,7 @@ script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js'
     = f.select :display_tweets_num, TweetsForm.display_tweets_nums.keys.map { |k| [TweetsForm.display_tweets_nums_i18n[k], k]}, {}, class:'mr-3'
     = f.select :display_tweets_type, TweetsForm.display_tweets_types.keys.map { |k| [TweetsForm.display_tweets_types_i18n[k], k]}, {}, class:'mr-3'
     = f.submit '適用', class:'btn btn-primary btn-sm'
-#tweet_list.grid.ml-5.mr-5.mb-5
+#tweet_list.grid.ml-5.mr-5.mb-5.mt-3
   - @tweets.each do |tweet|
     - if not tweet.user.protected?
       .embed-twitter.tweet-style
