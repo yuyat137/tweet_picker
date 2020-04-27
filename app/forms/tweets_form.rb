@@ -19,8 +19,10 @@ class TweetsForm
       tweets.concat(user.twitter.list_timeline(list.list_id, count: 200, max_id: old_tweet.id))
     end
 
-    # TODO: フォーマットが日本になっただけで、時間自体はUTCなので直す
-    load_period = [tweets.min_by(&:created_at).created_at.to_s(:datetime_jp), tweets.max_by(&:created_at).created_at.to_s(:datetime_jp)]
+    oldest_tweet_time = tweets.min_by(&:created_at).created_at.in_time_zone.to_s(:datetime_jp)
+    newest_tweet_time = tweets.max_by(&:created_at).created_at.in_time_zone.to_s(:datetime_jp)
+    load_period = [oldest_tweet_time, newest_tweet_time]
+
     tweets.select! { |x| x.retweet? == false }
 
     if (display_tweets_type != :all_tweets)
