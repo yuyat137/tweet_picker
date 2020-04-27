@@ -7,7 +7,6 @@ class TweetsForm
   attribute :display_tweets_type, :integer, default: 0
   attribute :display_tweets_num, :integer, default: 0
 
-  # TODO: read_one_day: 4を作成する(一日分のツイートを読み込む)
   enum read_tweets_num: { read_200: 0, read_400: 1, read_600: 2, read_800: 3 }.freeze
   enum display_tweets_type: { all_tweets: 0, one_per_one: 1, two_per_one: 2 }.freeze
   enum display_tweets_num: { display_50: 0, display_100: 1, display_150: 2 }.freeze
