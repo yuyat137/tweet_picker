@@ -25,11 +25,11 @@ class TweetsForm
 
     tweets.select! { |x| x.retweet? == false }
 
-    if (display_tweets_type != :all_tweets)
+    if display_tweets_type != :all_tweets
       tweets = filter_tweets_by_display_type(tweets)
     end
 
-    return tweets.max_by((display_tweets_num_value + 1) * 50, &:favorite_count), load_period
+    [tweets.max_by((display_tweets_num_value + 1) * 50, &:favorite_count), load_period]
   end
 
   def filter_tweets_by_display_type(tweets)
@@ -48,4 +48,3 @@ class TweetsForm
     tweets
   end
 end
-
