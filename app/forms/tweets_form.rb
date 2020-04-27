@@ -31,6 +31,8 @@ class TweetsForm
     [tweets.max_by((display_tweets_num_value + 1) * 50, &:favorite_count), load_period]
   end
 
+  private
+
   def filter_tweets_by_display_type(tweets)
     tweets_per_user = {}
     tweets.each do |tweet|
