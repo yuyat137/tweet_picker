@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_032105) do
+ActiveRecord::Schema.define(version: 2020_04_28_121347) do
 
   create_table "authentications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(version: 2020_04_19_032105) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "access_id", null: false
+    t.string "profile_image_url"
+    t.string "mode"
+    t.string "screen_name"
     t.index ["access_id"], name: "index_twitter_lists_on_access_id", unique: true
     t.index ["user_id", "list_id"], name: "index_twitter_lists_on_user_id_and_list_id", unique: true
     t.index ["user_id"], name: "index_twitter_lists_on_user_id"

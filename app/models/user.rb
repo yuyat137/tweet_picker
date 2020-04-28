@@ -18,6 +18,9 @@ class User < ApplicationRecord
     temp_lists = twitter.lists
     new_twitter_lists = []
     temp_lists.each do |list|
+      # list.user.profile_image_url.to_s でリスト作成者のプロフィール画像取得
+      # list.modeでprivateかpublicか取得
+      # list.user.screen_nameでスクリーンネーム取得
       new_twitter_lists << TwitterList.new(list_id: list.id, list_name: list.name, access_id: SecureRandom.base58(TwitterList::ACCESS_ID_MAX_LENGTH))
     end
     twitter_lists.destroy_all
