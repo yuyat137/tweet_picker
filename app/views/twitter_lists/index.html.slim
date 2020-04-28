@@ -3,6 +3,12 @@
   table.mx-auto.mt-5
     - @twitter_lists.each do |list|
       tr.list-row
-        td.text-left = link_to(list.list_name, twitter_list_path(list.access_id))
+        td.text-left
+          = link_to twitter_list_path(list.access_id) do
+            = list.list_name
+            br
+            = image_tag(list.profile_image_url, size:'20x20')
+            = list.name
+            = '@' + list.screen_name
 .text-center.my-5
   = link_to('リスト情報を最新にする', twitter_lists_update_index_path, class:'btn btn-primary')

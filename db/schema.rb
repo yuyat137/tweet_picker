@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_121347) do
     t.string "access_id", null: false
     t.string "profile_image_url"
     t.string "mode"
+    t.string "name"
     t.string "screen_name"
     t.index ["access_id"], name: "index_twitter_lists_on_access_id", unique: true
     t.index ["user_id", "list_id"], name: "index_twitter_lists_on_user_id_and_list_id", unique: true
