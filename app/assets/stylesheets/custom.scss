@@ -1,14 +1,6 @@
-#app_description {
-  height: 300px;
-  width: 400px;
-  margin: auto;
-  border: 1px solid blue;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+//ヘッダー、フッター
+.nav-item-style {
+  padding-top: 20px;
 }
 
 #app_title {
@@ -16,19 +8,9 @@ body {
   padding-top: 5px;
 }
 
-.nav-item-style {
-  padding-top: 20px;
-}
-
-.list-row {
-  height: 70px;
-  border-top: solid 1px #d8d8d8;
-  border-bottom: solid 1px #d8d8d8;
-  a:hover { background-color: #fcfcaa; }
-}
-
-.tweet-style {
-  width: 33%;
+#to_page_top {
+  font-size: 30px;
+  text-align: right;
 }
 
 #common_footer {
@@ -41,17 +23,49 @@ body {
   align-items: center;
 }
 
-#to_page_top {
-  font-size: 30px;
-  text-align: right;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// トップページ
+#app_description {
+  height: 300px;
+  width: 400px;
+  margin: auto;
+  border: 1px solid blue;
+}
+
+// リスト一覧
+#table_style {
+  width: 40%;
+}
+
+.list-row {
+  height: 70px;
+  border-top: solid 1px #d8d8d8;
+  border-bottom: solid 1px #d8d8d8;
+}
+
+.list-row.clickable:hover {
+  background: #f0f8ff;
+  cursor: pointer;
+}
+
+// 検索
+#search_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #load_period {
   color: blue;
 }
 
-#search_form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+// ツイートいいね順
+.tweet-style {
+  width: 33%;
 }
+
