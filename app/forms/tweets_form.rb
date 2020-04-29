@@ -13,6 +13,9 @@ class TweetsForm
 
   def search(list, user)
     tweets = user.twitter.list_timeline(list.list_id, count: 200)
+
+    return if tweets.blank?
+
     read_tweets_num_value.times do
       old_tweet = tweets.min_by(&:created_at)
       tweets.concat(user.twitter.list_timeline(list.list_id, count: 200, max_id: old_tweet.id))

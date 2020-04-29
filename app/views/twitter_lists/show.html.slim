@@ -1,7 +1,8 @@
 script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js'
 .text-center.mt-5
   h2 = @list.list_name
-  small#load_period = "#{@load_period[0]}から#{@load_period[1]}までのツイートを読み込みました"
+  - if @load_period
+    small#load_period = "#{@load_period[0]}から#{@load_period[1]}までのツイートを読み込みました"
 
 .text-center.mt-3
   = form_with model: @tweets_form, url: twitter_list_path(@list.access_id), method: :get, local: true, id:'search_form' do |f|
@@ -9,11 +10,14 @@ script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js'
     = f.select :display_tweets_num, TweetsForm.display_tweets_nums.keys.map { |k| [TweetsForm.display_tweets_nums_i18n[k], k]}, {}, class:'mr-3'
     = f.select :display_tweets_type, TweetsForm.display_tweets_types.keys.map { |k| [TweetsForm.display_tweets_types_i18n[k], k]}, {}, class:'mr-3'
     = f.submit '適用', class:'btn btn-primary btn-sm'
-#tweet_list.grid.ml-5.mr-5.mb-5.mt-3
-  - @tweets.each do |tweet|
-    - if not tweet.user.protected?
-      .embed-twitter.tweet-style
-        blockquote.twitter-tweet
-          / NOTE: 該当ユーザーがRTしたツイートも、(RTしたツイートとして)正しく表示されるが、いいね数は0固定となる
-          = link_to('', 'https://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id.to_s)
-        script src='https://platform.twitter.com/widgets.js'
+- if @tweets
+  #tweet_list.grid.ml-5.mr-5.mb-5.mt-3
+    - @tweets.each do |tweet|
+      - if not tweet.user.protected?
+        .embed-twitter.tweet-style
+          blockquote.twitter-tweet
+            = link_to('', 'https://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id.to_s)
+          script src='https://platform.twitter.com/widgets.js'
+- else
+  .text-center
+    p#no_tweets_alert ツイートが読み込めませんでした

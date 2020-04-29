@@ -1,8 +1,18 @@
+script
 .text-center.mt-5
   h2 リストを選択してください
-  table.mx-auto.mt-5
-    - @twitter_lists.each do |list|
-      tr.list-row
-        td.text-left = link_to(list.list_name, twitter_list_path(list.access_id))
+  table.mx-auto.mt-5#table_style
+    tbody
+      - @twitter_lists.each do |list|
+        tr.list-row data-href=twitter_list_path(list.access_id)
+          td.text-left
+            .ml-2
+              = list.list_name
+              -if list.mode == 'private'
+                = icon('fas', 'lock', class:'ml-2')
+              br
+              = image_tag(list.profile_image_url, size:'20x20')
+              = list.name
+              = '@' + list.screen_name
 .text-center.my-5
   = link_to('リスト情報を最新にする', twitter_lists_update_index_path, class:'btn btn-primary')
