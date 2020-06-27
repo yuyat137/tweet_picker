@@ -1,4 +1,3 @@
-script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js'
 .text-center.mt-5
   h2 = @list.list_name
   - if @load_period
@@ -17,7 +16,8 @@ script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js'
         .embed-twitter.tweet-style
           blockquote.twitter-tweet
             = link_to('', 'https://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id.to_s)
-          script src='https://platform.twitter.com/widgets.js'
 - else
   .text-center
     p#no_tweets_alert ツイートが読み込めませんでした
+
+script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js'
