@@ -5,5 +5,4 @@
 //= require to_page_top
 //= require masonry
 //= require list_table
-//= require widgets
 //= require_tree .

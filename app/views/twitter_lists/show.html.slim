@@ -11,11 +11,7 @@
     = f.submit '適用', class:'btn btn-primary btn-sm'
 - if @tweets
   #tweet_list.grid.ml-5.mr-5.mb-5.mt-3
-    - @tweets.each do |tweet|
-      - if not tweet.user.protected?
-        .embed-twitter.tweet-style
-          blockquote.twitter-tweet
-            = link_to('', 'https://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id.to_s)
+    = render partial: 'tweet', collection: @tweets
 - else
   .text-center
     p#no_tweets_alert ツイートが読み込めませんでした

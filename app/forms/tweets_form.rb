@@ -31,7 +31,8 @@ class TweetsForm
       tweets = filter_tweets_by_display_type(tweets)
     end
 
-    [tweets.max_by((display_tweets_num_value + 1) * 50, &:favorite_count), load_period]
+    [tweets.max_by((display_tweets_num_value + 1) * 5, &:favorite_count), load_period]
+    # [tweets.max_by((display_tweets_num_value + 1) * 50, &:favorite_count), load_period]
   end
 
   private

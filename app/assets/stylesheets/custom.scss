@@ -42,6 +42,12 @@ body {
   width: 40%;
 }
 
+.tweet-style {
+  border: solid 1px #d3d3d3;
+  border-radius: 0.5em;
+  padding: 0 10px;
+}
+
 .list-row {
   height: 70px;
   border-top: solid 1px #d8d8d8;
@@ -53,6 +59,22 @@ body {
   cursor: pointer;
 }
 
+.user-info {
+  width: 92%;
+  font-size: 0.5em;
+}
+
+.user-name-field {
+  vertical-align: middle;
+}
+
+.user-name {
+  font-size: 1.5em;
+}
+
+.tweet-logo {
+  width: 8%
+}
 // 検索
 #search_form {
   display: flex;
@@ -65,10 +87,6 @@ body {
 }
 
 // ツイートいいね順
-.tweet-style {
-  width: 33%;
-}
-
 #no_tweets_alert {
   margin-top: 90px;
   font-size: 30px;
