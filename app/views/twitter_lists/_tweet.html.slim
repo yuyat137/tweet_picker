@@ -13,4 +13,19 @@
               = '@' + tweet.user.screen_name
       .tweet-logo.d-inline-block
         = image_tag('Twitter_Logo_Blue.png', size: '30x30')
-      = tweet.text
+      .text-style.mb-3
+        = body(tweet)
+        = youtube_thumbnail(tweet)
+        = media(tweet)
+      .action-icon
+        .reply-icon
+          = image_tag('reply.png', size: '11x11')
+          / = image_tag('reply-hover.png', size: '11x11')
+        .retweet-icon
+          = image_tag('retweet.png', size: '15x15')
+          / = image_tag('retweet-hover.png', size: '15x15')
+        .heart-icon
+          = image_tag('heart.png', size: '10x10')
+          / = image_tag('heart-hover.png', size: '10x10')
+        .tweeted_datetime
+          = l(tweet.created_at)
