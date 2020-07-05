@@ -82,21 +82,6 @@ body {
   word-wrap: break-word;
 }
 
-.action-icon {
-  display: flex;
-}
-
-.reply-icon {
-}
-
-.retweet-icon {
-  margin-left: 30px;
-}
-
-.heart-icon {
-  margin-left: 30px;
-}
-
 .tweeted_datetime {
   margin-left: auto;
 }
@@ -109,6 +94,68 @@ body {
 
 .embed_youtube {
   width: 100%;
+}
+
+// ツイートのリプ、リツイート、いいね欄
+.action-space {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+}
+
+.reply-info {
+  height: 30px;
+  width: 30px;
+  flex-basis: 60px;
+}
+.reply-icon {
+  // padding-topは微調整
+  padding-top: 1.5px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.retweet-info {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  flex-basis: 80px;
+}
+
+.retweet-icon {
+  // padding-topは微調整
+  padding-top: 2.5px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.favorite-info {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  flex-basis: 80px;
+}
+
+.favorite-icon {
+  // padding-topは微調整
+  padding-top: 2px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.action-count {
+  padding-bottom: 1px;
+  font-size: 13px;
+  vertical-align: top;
+  height: 30px;
+  line-height: 30px;
 }
 
 // 検索

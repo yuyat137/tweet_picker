@@ -1,6 +1,5 @@
 - if not tweet.user.protected?
-  .col-sm-12.col-md-6.col-lg-4.mb-3
-  
+  div id="tweet-#{tweet.id}" class='tweet col-sm-12 col-md-6 col-lg-4 mb-3'
     .tweet-style
       .user-info.d-inline-block.mt-1
         .d-inline-block.h-100
@@ -17,15 +16,19 @@
         = simple_format(body(tweet))
         = youtube_thumbnail(tweet)
         = media(tweet)
-      .action-icon
-        .reply-icon
-          = image_tag('reply.png', size: '11x11')
-          / = image_tag('reply-hover.png', size: '11x11')
-        .retweet-icon
-          = image_tag('retweet.png', size: '15x15')
-          / = image_tag('retweet-hover.png', size: '15x15')
-        .heart-icon
-          = image_tag('heart.png', size: '10x10')
-          / = image_tag('heart-hover.png', size: '10x10')
+      .action-space
+        .reply-info
+          .reply-icon
+            = image_tag('reply.png', size: '11x11')
+        .retweet-info
+          .retweet-icon
+            = image_tag('retweet.png', size: '16x16')
+          .action-count
+            = tweet.attrs[:retweet_count]
+        .favorite-info
+          .favorite-icon
+            = image_tag('favorite.png', size: '11x11')
+          .action-count
+            = tweet.attrs[:favorite_count]
         .tweeted_datetime
           = l(tweet.created_at)
