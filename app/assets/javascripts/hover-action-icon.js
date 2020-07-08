@@ -2,12 +2,12 @@ $(function() {
   $('.reply-info').hover(
     function() {
       //マウスカーソルが重なった時の処理
-      $(this).children('.reply-icon').children('img').attr('src', '/assets/reply-hover.png');
+      $(this).children('.reply-icon').children('a').children('img').attr('src', '/assets/reply-hover.png');
       $(this).children('.reply-icon').css({'background-color': 'rgba(0,255,255,0.1)'});
     },
     function() { 
       //マウスカーソルが離れた時の処理
-      $(this).children('img').attr('src', '/assets/reply.png');
+      $(this).children('.reply-icon').children('a').children('img').attr('src', '/assets/reply.png');
       $(this).children('.reply-icon').css({'background-color': 'transparent'});
     }
   );

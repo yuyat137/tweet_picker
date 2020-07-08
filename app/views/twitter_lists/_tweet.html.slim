@@ -19,13 +19,13 @@
       .action-space
         .reply-info
           .reply-icon
-            = image_tag('reply.png', size: '11x11')
-        .retweet-info
+            = link_to(image_tag('reply.png', size: '11x11'), reply_url(tweet), target: :_blank)
+        = link_to retweet_url(tweet), target: :_blank, class:'retweet-info', style: "color:black;" do
           .retweet-icon
             = image_tag('retweet.png', size: '16x16')
           .action-count
             = tweet.attrs[:retweet_count]
-        .favorite-info
+        = link_to favorite_url(tweet), target: :_blank, class: 'favorite-info', style: "color:black;" do
           .favorite-icon
             = image_tag('favorite.png', size: '11x11')
           .action-count

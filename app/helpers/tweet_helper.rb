@@ -75,10 +75,6 @@ module TweetHelper
 
     content_tag 'iframe', nil, src: ('https://www.youtube.com/embed/' + mark.post_match.split.first), \
       frameborder: 0, gesture: 'media', allow: 'encrypted-media', allowfullscreen: true, class: 'embed_youtube'
-
-    # https://youtu.be/N-fu7VqT3qk
-    # https://www.youtube.com/watch?v=N-fu7VqT3qk
-    # image_tag('https://img.youtube.com/vi/' +  + '/hqdefault.jpg')
   end
 
   def text_url_to_link text 
@@ -90,5 +86,17 @@ module TweetHelper
     end
    
     return text
+  end
+
+  def reply_url(tweet)
+    'https://twitter.com/intent/tweet?in_reply_to=' + tweet.id.to_s
+  end
+
+  def favorite_url(tweet)
+    'https://twitter.com/intent/like?tweet_id=' + tweet.id.to_s
+  end
+
+  def retweet_url(tweet)
+    'https://twitter.com/intent/retweet?tweet_id=' + tweet.id.to_s
   end
 end
