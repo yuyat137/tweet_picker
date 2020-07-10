@@ -1,3 +1,8 @@
+// 共通
+a:hover {
+  text-decoration: none;
+}
+
 //ヘッダー、フッター
 .nav-item-style {
   padding-top: 20px;
@@ -38,6 +43,9 @@ body {
 }
 
 // リスト一覧
+.tweet {
+}
+
 #table_style {
   width: 40%;
 }
@@ -94,6 +102,10 @@ body {
 
 .embed_youtube {
   width: 100%;
+}
+
+.link-area {
+  display: block;
 }
 
 // ツイートのリプ、リツイート、いいね欄

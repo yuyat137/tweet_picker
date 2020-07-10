@@ -99,4 +99,8 @@ module TweetHelper
   def retweet_url(tweet)
     'https://twitter.com/intent/retweet?tweet_id=' + tweet.id.to_s
   end
+
+  def tweet_url(tweet)
+    'https://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id.to_s
+  end
 end
