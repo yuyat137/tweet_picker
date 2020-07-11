@@ -1,42 +1,11 @@
 module TweetHelper
   def body(tweet)
-    text = if tweet.media?
-             tweet.attrs[:full_text].sub(%r{https://t\.co/[0-9a-zA-Z]{10}\Z}, '')
-           else
-             tweet.attrs[:full_text]
-           end
-
-    # t.co URLを通常のURLに戻す
-    tweet.attrs[:entities][:urls].each do |urls|
-      text.sub!(urls[:url], urls[:expanded_url])
-    end
-    # URLをリンクに変換する
-    url_texts = ['http://', 'https://']
-    url_texts.each do |url_text|
-      mark = text.match(url_text)
-      next unless mark
-
-      url = url_text + mark.post_match.split.first
-      link = "<a href='" + url + "'>" + url + '</a>'
-      text.gsub!(url, link)
-    end
-
-    # リプライの場合、もしくは(@)ユーザー名がツイート内にある場合
-    mentions_info = tweet.attrs[:entities][:user_mentions].first
-    unless mentions_info.blank?
-      mention_text = '@' + mentions_info[:screen_name]
-      link = "<a href='https://twitter.com/" + mentions_info[:screen_name] + '/status/' + tweet.id.to_s + "' target=\"_blank\" rel=\"noopener\">" + mention_text + '</a>'
-      text.gsub!(mention_text, link)
-    end
-    # TODO: ここ、何故か別タグにならない問題が
-
-    # ハッシュタグがある場合
-    # TODO: 現状バグ有り。例：#ガルパと#ガルパ超電磁砲Tコラボ開催中がハッシュタグの場合
-    tweet.attrs[:entities][:hashtags]&.each do |hashtag|
-      link = "<a href='https://twitter.com/hashtag/" + hashtag[:text] + "?src=hashtag_click'>#" + hashtag[:text] + '</a>'
-      text.gsub!('#' + hashtag[:text], link)
-    end
-    # 引用ツイートがある場合、引用したツイートを小さく表示する
+    text = full_text(tweet)
+    text = restore_omitted_url(text, tweet)
+    text = convert_url_to_link(text)
+    text = convert_mentions_to_link(text, tweet)
+    text = convert_hashtag_to_link(text, tweet)
+    # TODO: 引用ツイートがある場合、引用したツイートを小さく表示する(未実装)
 
     text
   end
@@ -76,6 +45,59 @@ module TweetHelper
 
     content_tag 'iframe', nil, src: ('https://www.youtube.com/embed/' + mark.post_match.split.first), \
                                frameborder: 0, gesture: 'media', allow: 'encrypted-media', allowfullscreen: true, class: 'embed_youtube'
+  end
+
+  def full_text(tweet)
+    if tweet.media?
+      # メディア(画像、動画)が存在する場合、文末にツイートのURLが付与されるため削除する(元々のツイートには存在しない)
+      tweet.attrs[:full_text].sub(%r{https://t\.co/[0-9a-zA-Z]{10}\Z}, '')
+    else
+      tweet.attrs[:full_text]
+    end
+  end
+
+  # t.co URL(Twitter独自の短縮URL)を通常のURLに戻す
+  def restore_omitted_url(text, tweet)
+    tweet.attrs[:entities][:urls].each do |urls|
+      text.sub!(urls[:url], urls[:expanded_url])
+    end
+
+    text
+  end
+
+  # URLをリンクに変換する(aタグで挟む)
+  def convert_url_to_link(text)
+    url_texts = ['http://', 'https://']
+    url_texts.each do |url_text|
+      mark = text.match(url_text)
+      next unless mark
+
+      url = url_text + mark.post_match.split.first
+      link = "<a href='" + url + "'>" + url + '</a>'
+      text.gsub!(url, link)
+    end
+    text
+  end
+
+  # メンションをリンクに変換する
+  def convert_mentions_to_link(text, tweet)
+    # TODO: ここ、何故か別タグにならない問題が
+    mentions_info = tweet.attrs[:entities][:user_mentions].first
+    unless mentions_info.blank?
+      mention_text = '@' + mentions_info[:screen_name]
+      link = "<a href='https://twitter.com/" + mentions_info[:screen_name] + '/status/' + tweet.id.to_s + "' target=\"_blank\" rel=\"noopener\">" + mention_text + '</a>'
+      text.gsub!(mention_text, link)
+    end
+    text
+  end
+
+  # TODO: 現状バグ有り。例：#ガルパと#ガルパ超電磁砲Tコラボ開催中がハッシュタグの場合
+  def convert_hashtag_to_link(text, tweet)
+    tweet.attrs[:entities][:hashtags]&.each do |hashtag|
+      link = "<a href='https://twitter.com/hashtag/" + hashtag[:text] + "?src=hashtag_click'>#" + hashtag[:text] + '</a>'
+      text.gsub!('#' + hashtag[:text], link)
+    end
+    text
   end
 
   def reply_url(tweet)
