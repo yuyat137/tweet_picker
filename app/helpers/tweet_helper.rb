@@ -36,9 +36,7 @@ module TweetHelper
       link = "<a href='https://twitter.com/hashtag/" + hashtag[:text] + "?src=hashtag_click'>#" + hashtag[:text] + '</a>'
       text.gsub!('#' + hashtag[:text], link)
     end
-    # 引用ツイートがある場合
-    # 引用したツイートを小さく表示する
-    # simple_format(text_url_to_link(h(text)))
+    # 引用ツイートがある場合、引用したツイートを小さく表示する
 
     text
   end
@@ -78,17 +76,6 @@ module TweetHelper
 
     content_tag 'iframe', nil, src: ('https://www.youtube.com/embed/' + mark.post_match.split.first), \
                                frameborder: 0, gesture: 'media', allow: 'encrypted-media', allowfullscreen: true, class: 'embed_youtube'
-  end
-
-  def text_url_to_link(text)
-    URI.extract(text, %w[http https]).uniq.each do |url|
-      sub_text = ''
-      sub_text << '<a href=' << url << ' target="_blank">' << url << '</a>'
-
-      text.gsub!(url, sub_text)
-    end
-
-    text
   end
 
   def reply_url(tweet)
