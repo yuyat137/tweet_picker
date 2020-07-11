@@ -12,13 +12,13 @@ class TweetsForm
   enum display_tweets_num: { display_50: 0, display_100: 1, display_150: 2 }.freeze
 
   def search(list, user)
-    tweets = user.twitter.list_timeline(list.list_id, count: 200, tweet_mode: "extended")
+    tweets = user.twitter.list_timeline(list.list_id, count: 200, tweet_mode: 'extended')
 
     return if tweets.blank?
 
     read_tweets_num_value.times do
       old_tweet = tweets.min_by(&:created_at)
-      tweets.concat(user.twitter.list_timeline(list.list_id, count: 200, max_id: old_tweet.id, tweet_mode: "extended"))
+      tweets.concat(user.twitter.list_timeline(list.list_id, count: 200, max_id: old_tweet.id, tweet_mode: 'extended'))
     end
 
     oldest_tweet_time = tweets.min_by(&:created_at).created_at.in_time_zone.to_s(:datetime_jp)
