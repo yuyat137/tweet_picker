@@ -14,3 +14,8 @@ ja:
         display_50:  50件表示
         display_100: 100件表示
         display_150: 150件表示
+  time:
+    formats:
+      default: "%d %b %Y"
+  date:
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
