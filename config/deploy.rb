@@ -1,5 +1,5 @@
 lock "~> 3.14.1"
-set :application, "tweet-picker"
+set :application, "tweet_picker"
 set :repo_url, "git@github.com:estsn122/tweet_picker.git"
 set :user, 'yuya'
 set :deploy_to, "/var/www/tweet_picker"
