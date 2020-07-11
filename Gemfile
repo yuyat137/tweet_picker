@@ -23,6 +23,7 @@ gem 'attr_encrypted'
 gem 'twitter'
 gem 'activerecord-import'
 gem 'font-awesome-sass'
+gem 'mini_racer', platforms: :ruby
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
