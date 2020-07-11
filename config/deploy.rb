@@ -1,11 +1,11 @@
-lock "~> 3.14.1"
-set :application, "tweet_picker"
-set :repo_url, "git@github.com:estsn122/tweet_picker.git"
+lock '~> 3.14.1'
+set :application, 'tweet_picker'
+set :repo_url, 'git@github.com:estsn122/tweet_picker.git'
 set :user, 'yuya'
 # Default branch is :master
 # deploy時にブランチを選択したい場合は、以下のコメント部分を外す
 ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
-set :deploy_to, "/var/www/tweet_picker"
+set :deploy_to, '/var/www/tweet_picker'
 set :linked_files, %w[config/master.key config/database.yml]
 set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets public/system vendor/bundle]
 set :rbenv_ruby, File.read('.ruby-version').strip
@@ -32,7 +32,7 @@ namespace :deploy do
   task :upload do
     on roles(:app) do
       sudo :mkdir, '-p', "#{shared_path}/config"
-      sudo %[chown -R #{fetch(:user)}.#{fetch(:user)} /var/www/#{fetch(:application)}]
+      sudo %(chown -R #{fetch(:user)}.#{fetch(:user)} /var/www/#{fetch(:application)})
       sudo :mkdir, '-p', '/etc/nginx/sites-enabled'
       sudo :mkdir, '-p', '/etc/nginx/sites-available'
       # upload!('config/database.yml', "#{shared_path}/config/database.yml")
