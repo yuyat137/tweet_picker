@@ -21,9 +21,13 @@ module TweetHelper
     end
 
     # リプライの場合、もしくは(@)ユーザー名がツイート内にある場合
-    if tweet.attrs[:entities][:user_mentions]
-      # @〜をリンクにする
+    mentions_info = tweet.attrs[:entities][:user_mentions].first
+    unless mentions_info.blank?
+      mention_text = '@' + mentions_info[:screen_name]
+      link = "<a href='https://twitter.com/" + mentions_info[:screen_name] + "/status/" + tweet.id.to_s + "' target=\"_blank\" rel=\"noopener\">" + mention_text + "</a>"
+      text.gsub!(mention_text, link)
     end
+    #TODO ここ、何故か別タグにならない問題が
 
     # ハッシュタグがある場合
     # TODO: 現状バグ有り。例：#ガルパと#ガルパ超電磁砲Tコラボ開催中がハッシュタグの場合
