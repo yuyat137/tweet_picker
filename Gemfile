@@ -23,6 +23,7 @@ gem 'attr_encrypted'
 gem 'twitter'
 gem 'activerecord-import'
 gem 'font-awesome-sass'
+gem 'mini_racer', platforms: :ruby
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -33,6 +34,12 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-nginx'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
