@@ -1,8 +1,8 @@
-.text-center.mt-5
+.text-center
   #app_description
-    p.mt-5 アプリの説明文
-.text-center.mt-5.mb-5
-  - if logged_in?
-    = link_to 'Twitterリストへ', twitter_lists_path, class:'btn btn-success'
-  - else
-    = link_to 'Twitterログイン', auth_at_provider_path(:provider => :twitter), class:'btn btn-info'
+    = image_tag('top-image-transparent.jpg', class: 'top-image')
+    .text-center.mb-5.mt-3.mx-auto
+      - if logged_in?
+        = link_to 'Twitterリストへ', twitter_lists_path, class:'btn btn-success top-button'
+      - else
+        = link_to 'Twitterログイン', auth_at_provider_path(:provider => :twitter), class:'btn btn-info top-button'
