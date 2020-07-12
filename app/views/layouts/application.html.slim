@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title
+      | TweetPicker
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+  body
+    - if logged_in?
+      = render 'shared/after_login_header'
+    - else
+      = render 'shared/before_login_header'
+    = render 'shared/flash_message'
+    = yield
+    - if request.path.match('twitter_lists/.+')
+      = render 'shared/to_page_top'
+    / = render 'shared/footer'
