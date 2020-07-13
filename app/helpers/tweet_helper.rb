@@ -85,11 +85,19 @@ module TweetHelper
   # メンションをリンクに変換する
   def convert_mentions_to_link(text, tweet)
     # TODO: ここ、何故か別タグにならない問題が
-    mentions_info = tweet.attrs[:entities][:user_mentions].first
-    unless mentions_info.blank?
-      mention_text = '@' + mentions_info[:screen_name]
-      link = "<a href='https://twitter.com/" + mentions_info[:screen_name] + '/status/' + tweet.id.to_s + "' target=\"_blank\" rel=\"noopener\">" + mention_text + '</a>'
-      text.gsub!(mention_text, link)
+
+    if text.match(/^@#{tweet.in_reply_to_screen_name}/) && !tweet.in_reply_to_screen_name.nil?
+      reply_text = '@' + tweet.in_reply_to_screen_name
+      to_link = "<a href='https://twitter.com/" + tweet.in_reply_to_screen_name + "/status/" + tweet.in_reply_to_status_id.to_s +  "'>" + reply_text + '</a>'
+      text.sub!(reply_text, to_link)
+    end
+
+    tweet.attrs[:entities][:user_mentions].each do |mention|
+      if mention[:screen_name] != tweet.in_reply_to_screen_name
+        mention_text = '@' + mention[:screen_name]
+        to_link = "<a href='https://twitter.com/" + mention[:screen_name] + "'>" + mention_text + '</a>'
+        text.gsub!(mention_text, to_link)
+      end
     end
     text
   end
