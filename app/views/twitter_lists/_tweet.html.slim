@@ -15,7 +15,7 @@
           = image_tag('Twitter_Logo_Blue.png', size: '30x30')
         .text-style.mb-3
           = simple_format(body(tweet))
-          = youtube_thumbnail(tweet)
+          = embed_youtube(tweet)
           = media(tweet)
         .action-space
           .reply-info
