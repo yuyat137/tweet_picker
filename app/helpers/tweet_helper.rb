@@ -45,7 +45,7 @@ module TweetHelper
 
     youtube_video_id = mark.post_match.split.first
 
-    youtube_video_id.gsub!(/'.*/, '')   
+    youtube_video_id.gsub!(/'.*/, '')
     content_tag 'iframe', nil, src: ('https://www.youtube.com/embed/' + youtube_video_id), \
                                frameborder: 0, gesture: 'media', allow: 'encrypted-media', allowfullscreen: true, class: 'embed_youtube'
   end
