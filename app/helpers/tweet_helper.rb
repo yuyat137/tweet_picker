@@ -29,7 +29,7 @@ module TweetHelper
     end
   end
 
-  def youtube_thumbnail(tweet)
+  def embed_youtube(tweet)
     tweet_text = tweet.attrs[:full_text]
     youtube_text = ['youtu.be', 'youtube.com/watch?v=']
     return unless youtube_text.any? { |t| tweet_text.include?(t) }
@@ -43,7 +43,10 @@ module TweetHelper
 
     return unless mark
 
-    content_tag 'iframe', nil, src: ('https://www.youtube.com/embed/' + mark.post_match.split.first), \
+    youtube_video_id = mark.post_match.split.first
+
+    youtube_video_id.gsub!(/'.*/, '')   
+    content_tag 'iframe', nil, src: ('https://www.youtube.com/embed/' + youtube_video_id), \
                                frameborder: 0, gesture: 'media', allow: 'encrypted-media', allowfullscreen: true, class: 'embed_youtube'
   end
 
