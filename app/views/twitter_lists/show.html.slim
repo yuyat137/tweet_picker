@@ -1,19 +1,20 @@
-.text-center.mt-5
-  h2 = @list.list_name
-  - if @load_period
-    small#load_period = "#{@load_period[0]}から#{@load_period[1]}までのツイートを読み込みました"
-
-.text-center.mt-3
-  = form_with model: @tweets_form, url: twitter_list_path(@list.access_id), method: :get, local: true, id:'search_form' do |f|
-    = f.select :read_tweets_num, TweetsForm.read_tweets_nums.keys.map { |k| [TweetsForm.read_tweets_nums_i18n[k], k]}, {}, class:'mr-3'
-    = f.select :display_tweets_num, TweetsForm.display_tweets_nums.keys.map { |k| [TweetsForm.display_tweets_nums_i18n[k], k]}, {}, class:'mr-3'
-    = f.select :display_tweets_type, TweetsForm.display_tweets_types.keys.map { |k| [TweetsForm.display_tweets_types_i18n[k], k]}, {}, class:'mr-3'
-    = f.submit '適用', class:'btn btn-primary btn-sm'
-- if @tweets
-  #tweet_list.grid.ml-5.mr-5.mb-5.mt-3
-    = render partial: 'tweet', collection: @tweets
-- else
-  .text-center
-    p#no_tweets_alert ツイートが読み込めませんでした
+.row
+  .col-12
+    .text-center.mt-5
+      h2 = @list.list_name
+      - if @load_period
+        small#load_period = "#{@load_period[0]}から#{@load_period[1]}までのツイートを読み込みました"
+    .text-center.mt-3
+      = form_with model: @tweets_form, url: twitter_list_path(@list.access_id), method: :get, local: true, id:'search_form' do |f|
+        = f.select :read_tweets_num, TweetsForm.read_tweets_nums.keys.map { |k| [TweetsForm.read_tweets_nums_i18n[k], k]}, {}, class:'mr-3'
+        = f.select :display_tweets_num, TweetsForm.display_tweets_nums.keys.map { |k| [TweetsForm.display_tweets_nums_i18n[k], k]}, {}, class:'mr-3'
+        = f.select :display_tweets_type, TweetsForm.display_tweets_types.keys.map { |k| [TweetsForm.display_tweets_types_i18n[k], k]}, {}, class:'mr-3'
+        = f.submit '適用', class:'btn btn-primary btn-sm'
+    - if @tweets
+      #tweet_list.grid.ml-5.mr-5.mb-5.mt-3
+        = render partial: 'tweet', collection: @tweets
+    - else
+      .text-center
+        p#no_tweets_alert ツイートが読み込めませんでした
 
 script src='https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js'
