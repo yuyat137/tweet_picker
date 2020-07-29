@@ -17,8 +17,8 @@ header {
   height: 100%;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: 50px;
+  margin-left: 50px;
   display: flex;
   justify-content: space-between;
 }
@@ -90,7 +90,7 @@ header {
 }
 
 .smartphone-menu-item {
-  font-size: 30px;
+  font-size: 50px;
 }
 
 .smartphone-twitter-icon {
@@ -100,8 +100,10 @@ header {
 
 
 .panel {
-  position: fixed;
-  width: 300px;
+  position: absolute;
+  width: 330px;
+  // 右側にmargin:50pxとpadding:15pxのスペースがある
+  right: 65px;
   background: #6bb6fe;
   display: none;
   ul {
