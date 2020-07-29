@@ -1,0 +1,44 @@
+header {
+  height: 100%;
+}
+
+.nav-height {
+  @media (max-width: 990px) {
+    height: 150px;
+  }
+  @media (min-width: 990px) {
+    height: 80px;
+  }
+}
+
+.nav-color {
+  background-color: #87cefa;
+}
+
+.nav-item-style {
+  height: 10vh;
+  vertical-align: middle;
+}
+
+#app_title {
+  @media (max-width: 990px) {
+    font-size: 70px;
+  }
+  @media (min-width: 990px) {
+    font-size: 40px;
+  }
+}
+
+.nav-collapse-size {
+  @media (max-width: 990px) {
+    font-size: 40px;
+  }
+  @media (min-width: 990px) {
+    font-size: 20px;
+  }
+}
+
+#to_page_top {
+  font-size: 30px;
+  text-align: right;
+}

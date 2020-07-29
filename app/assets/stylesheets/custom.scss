@@ -69,67 +69,6 @@ body {
 .tweet {
 }
 
-#table_style {
-  width: 40%;
-}
-
-// ツイート
-.tweet-style {
-  border: solid 1px #d3d3d3;
-  border-radius: 0.5em;
-  padding: 0 10px;
-}
-
-.list-row {
-  height: 70px;
-  border-top: solid 1px #d8d8d8;
-  border-bottom: solid 1px #d8d8d8;
-}
-
-.list-row.clickable:hover {
-  background: #f0f8ff;
-  cursor: pointer;
-}
-
-.user-info {
-  width: 92%;
-  font-size: 0.5em;
-}
-
-.user-name-field {
-  vertical-align: middle;
-}
-
-.user-name {
-  font-size: 1.5em;
-}
-
-.tweet-logo {
-  width: 8%
-}
-
-.text-style {
-  margin-top: 10px;
-  word-wrap: break-word;
-}
-
-.tweeted_datetime {
-  margin-left: auto;
-}
-
-.media {
-  max-height: 350px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.embed_youtube {
-  width: 100%;
-}
-
-.link-area {
-  display: block;
-}
 
 // ツイートのリプ、リツイート、いいね欄
 .action-space {
