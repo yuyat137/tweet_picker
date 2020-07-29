@@ -42,6 +42,12 @@ header {
   height: 70px;
 }
 
+.pc-header {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 .pc-menu {
   margin: auto 0;
   display: flex;
@@ -74,9 +80,7 @@ header {
 }
 
 .header-left {
-  height: 100%;
-  display: flex;
-  align-items: center;
+  margin: auto 0;
 }
 
 .header-right {

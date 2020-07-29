@@ -3,10 +3,12 @@ header.header
     .header-left
       = link_to 'Tweet Picker', twitter_lists_path, id:'header-title'
     .header-right
-      ul.pc-menu
-        li
-          = link_to 'ログアウト', logout_path, class:'pc-menu-item'
-      = image_tag(current_user.profile_image_url, class:'twitter-icon')
-      ul.smartphone-menu
-        li
-          = link_to 'ログアウト', logout_path, class:'smartphone-menu-item'
+      .pc-header
+        ul.pc-menu
+          li
+            = link_to 'ログアウト', logout_path, class:'pc-menu-item'
+        = image_tag(current_user.profile_image_url, class:'twitter-icon')
+      .smartphone-menu
+        ul.smartphone-menu
+          li
+            = link_to 'ログアウト', logout_path, class:'smartphone-menu-item'
