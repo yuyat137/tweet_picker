@@ -1,8 +1,5 @@
 header {
-  height: 100%;
-}
-
-.nav-height {
+  background-color: #87cefa;
   @media (max-width: 990px) {
     height: 150px;
   }
@@ -11,16 +8,26 @@ header {
   }
 }
 
-.nav-color {
-  background-color: #87cefa;
+.header {
+  border-bottom: 1px solid #ddd;
 }
 
-.nav-item-style {
-  height: 10vh;
-  vertical-align: middle;
+.header-inner {
+  max-width: 80%;
+  height: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
-#app_title {
+#header-title {
+  color: black;
+  &:hover {
+    color: black;
+  }
   @media (max-width: 990px) {
     font-size: 70px;
   }
@@ -29,16 +36,50 @@ header {
   }
 }
 
-.nav-collapse-size {
+.twitter-icon {
+  margin: auto 0 auto 30px;
+  width: 70px;
+  height: 70px;
+}
+
+.pc-menu {
+  margin: auto 0;
+  display: flex;
+  list-style: none;
+}
+
+.pc-menu-item {
+  color: black;
+  &:hover {
+    color: black;
+  }
   @media (max-width: 990px) {
-    font-size: 40px;
+    display: none;
   }
+}
+
+.smartphone-menu {
+
   @media (min-width: 990px) {
-    font-size: 20px;
+    display: none;
   }
+}
+
+.smartphone-menu-item {
 }
 
 #to_page_top {
   font-size: 30px;
   text-align: right;
 }
+
+.header-left {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+}
+
