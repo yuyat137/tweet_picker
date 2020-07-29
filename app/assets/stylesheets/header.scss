@@ -13,7 +13,7 @@ header {
 }
 
 .header-inner {
-  max-width: 80%;
+  max-width: 90%;
   height: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -36,16 +36,27 @@ header {
   }
 }
 
-.twitter-icon {
-  margin: auto 0 auto 30px;
-  width: 70px;
-  height: 70px;
+.header-left {
+  margin: auto 0;
 }
 
+.header-right {
+  display: flex;
+}
+
+#to_page_top {
+  font-size: 30px;
+  text-align: right;
+}
+
+// PC側のヘッダー
 .pc-header {
   display: flex;
   align-items: center;
   height: 100%;
+  @media (max-width: 990px) {
+    display: none;
+  }
 }
 
 .pc-menu {
@@ -59,31 +70,50 @@ header {
   &:hover {
     color: black;
   }
-  @media (max-width: 990px) {
-    display: none;
-  }
 }
 
-.smartphone-menu {
+.pc-twitter-icon {
+  margin: auto 0 auto 30px;
+  width: 70px;
+  height: 70px;
+}
 
+// スマートフォン側のヘッダー
+.smartphone-header {
+  margin: auto 0;
   @media (min-width: 990px) {
     display: none;
   }
 }
 
+.smartphone-menu {
+}
+
 .smartphone-menu-item {
-}
-
-#to_page_top {
   font-size: 30px;
-  text-align: right;
 }
 
-.header-left {
-  margin: auto 0;
+.smartphone-twitter-icon {
+  width: 120px;
+  height: 120px;
 }
 
-.header-right {
-  display: flex;
+
+.panel {
+  position: fixed;
+  width: 300px;
+  background: #6bb6fe;
+  display: none;
+  ul {
+    list-style: none;
+  }
 }
 
+.panel_item {
+  display: inline-block;
+  margin: 20px 0;
+}
+
+.panel_item a {
+  color: #fff;
+}
