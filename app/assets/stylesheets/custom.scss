@@ -65,9 +65,22 @@ body {
 
 // トップ
 .top-image {
-  width: 50%;
+  @media (max-width: 990px) {
+    width: 100%;
+  }
+  @media (min-width: 990px) {
+    width: 50%;
+  }
 }
 
+.top-button {
+  @media (max-width: 990px) {
+    font-size: 40px;
+  }
+  @media (min-width: 990px) {
+    font-size: 25px;
+  }
+}
 
 // リスト一覧
 .tweet {
