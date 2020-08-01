@@ -10,7 +10,7 @@ class OauthsController < ApplicationController
     @user = login_from(provider)
     if @user
       @user.update(profile_image_url: @user.twitter.user.profile_image_url.to_s)
-      redirect_to twitter_lists_path, success: 'ログインしました'
+      redirect_to twitter_lists_path
     else
       begin
         @user = create_from(provider)
@@ -22,7 +22,7 @@ class OauthsController < ApplicationController
 
         reset_session
         auto_login(@user)
-        redirect_to twitter_lists_path, success: 'ログインしました'
+        redirect_to twitter_lists_path
       rescue StandardError
         redirect_to root_path, danger: 'ログインに失敗しました'
       end
