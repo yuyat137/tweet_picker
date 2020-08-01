@@ -40,6 +40,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano3-puma'
   gem 'capistrano-nginx'
+  gem 'rails-erd'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
