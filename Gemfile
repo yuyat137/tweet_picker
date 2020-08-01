@@ -5,7 +5,7 @@ ruby '2.6.4'
 
 gem 'rails', '~> 5.2.4'
 gem 'mysql2'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
@@ -40,6 +40,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano3-puma'
   gem 'capistrano-nginx'
+  gem 'rails-erd'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

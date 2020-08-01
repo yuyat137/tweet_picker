@@ -1,10 +1,10 @@
 - if not tweet.user.protected?
-  div id="tweet-#{tweet.id}" class='tweet col-sm-12 col-md-6 col-lg-4 mb-3'
+  div id="tweet-#{tweet.id}" class='tweet col-xs-12 col-sm-12　col-md-6 col-lg-4 col-xl-4 mb-3'
     = link_to tweet_url(tweet), target: :_blank, style: 'color:black;', class:'link-area' do
       .tweet-style
         .user-info.d-inline-block.mt-1
           .d-inline-block.h-100
-            = image_tag("#{tweet.user.profile_image_url}", size: '40x40', class:'rounded-circle')
+            = image_tag("#{tweet.user.profile_image_url}", class:'rounded-circle twitter-icon')
           .d-inline-block.h-100.user-name-field
               b.ml-1.user-name
                 = tweet.user.name
@@ -12,23 +12,23 @@
               .ml-1.user-name
                 = '@' + tweet.user.screen_name
         .tweet-logo.d-inline-block
-          = image_tag('Twitter_Logo_Blue.png', size: '30x30')
+          = image_tag('Twitter_Logo_Blue.png', class: 'twitter-logo')
         .text-style.mb-3
           = simple_format(body(tweet))
-          = youtube_thumbnail(tweet)
+          = embed_youtube(tweet)
           = media(tweet)
         .action-space
           .reply-info
-            .reply-icon
-              = link_to(image_tag('reply.png', size: '11x11'), reply_url(tweet), target: :_blank)
+            .reply-icon-space
+              = link_to(image_tag('reply.png', class: 'reply-icon'), reply_url(tweet), target: :_blank)
           = link_to retweet_url(tweet), target: :_blank, class:'retweet-info', style: "color:black;" do
-            .retweet-icon
-              = image_tag('retweet.png', size: '16x16')
+            .retweet-icon-space
+              = image_tag('retweet.png', class: 'retweet-icon')
             .action-count
               = tweet.attrs[:retweet_count]
           = link_to favorite_url(tweet), target: :_blank, class: 'favorite-info', style: "color:black;" do
-            .favorite-icon
-              = image_tag('favorite.png', size: '11x11')
+            .favorite-icon-space
+              = image_tag('favorite.png', class: 'favorite-icon')
             .action-count
               = tweet.attrs[:favorite_count]
           .tweeted_datetime
