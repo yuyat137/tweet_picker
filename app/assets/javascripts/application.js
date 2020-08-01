@@ -5,5 +5,4 @@
 //= require smartphone-twitter-icon
 //= require to_page_top
 //= require masonry
-//= require list_table
 //= require_tree .

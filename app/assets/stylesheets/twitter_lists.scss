@@ -20,6 +20,25 @@
   }
 }
 
+.table-link-space {
+  @media (max-width: 990px) {
+    height: 150px;
+  }
+  @media (min-width: 990px) {
+    height: 70px;
+  }
+}
+
+.table-link {
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: black;
+  &:hover {
+    color: black;
+  }
+}
+
 .list-icon {
   @media (max-width: 990px) {
     width: 60px;
@@ -31,7 +50,7 @@
   }
 }
 
-.list-row.clickable:hover {
+.list-row:hover {
   background: #f0f8ff;
   cursor: pointer;
 }

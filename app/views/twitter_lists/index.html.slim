@@ -6,9 +6,9 @@ script
       table.mx-auto.mt-5#table_style
         tbody
           - @twitter_lists.each do |list|
-            tr.list-row data-href=twitter_list_path(list.access_id)
-              td.text-left
-                .ml-2
+            tr.list-row
+              td.text-left.table-link-space
+                = link_to twitter_list_path(list.access_id), class: 'table-link ml-2' do
                   = list.list_name
                   -if list.mode == 'private'
                     = icon('fas', 'lock', class:'ml-2')
