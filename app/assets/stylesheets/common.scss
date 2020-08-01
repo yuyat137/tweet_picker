@@ -7,9 +7,27 @@
   }
 }
 
+.sub-description {
+  @media (max-width: 990px) {
+    font-size: 2.5rem;
+  }
+  @media (min-width: 990px) {
+    font-size: 1rem;
+  }
+}
+
 .btn-size {
   @media (max-width: 990px) {
     font-size: 2.5rem;
+  }
+  @media (min-width: 990px) {
+    font-size: 1rem;
+  }
+}
+
+.select-box-size {
+  @media (max-width: 990px) {
+    font-size: 2rem;
   }
   @media (min-width: 990px) {
     font-size: 1rem;
