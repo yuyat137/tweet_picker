@@ -1,3 +1,17 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.wrap {
+  overflow: hidden;
+}
+
 .main-description {
   @media (max-width: 990px) {
     font-size: 3.5rem;
@@ -33,3 +47,9 @@
     font-size: 1rem;
   }
 }
+
+#to_page_top {
+  font-size: 30px;
+  text-align: right;
+}
+
