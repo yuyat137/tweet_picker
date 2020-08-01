@@ -1,0 +1,133 @@
+header {
+  background-color: #87cefa;
+  @media (max-width: 990px) {
+    height: 150px;
+  }
+  @media (min-width: 990px) {
+    height: 80px;
+  }
+}
+
+.header {
+  border-bottom: 1px solid #ddd;
+}
+
+.header-inner {
+  max-width: 90%;
+  height: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 50px;
+  margin-left: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#header-title {
+  color: black;
+  &:hover {
+    color: black;
+  }
+  @media (max-width: 990px) {
+    font-size: 70px;
+  }
+  @media (min-width: 990px) {
+    font-size: 40px;
+  }
+}
+
+.header-left {
+  margin: auto 0;
+}
+
+.header-right {
+  display: flex;
+}
+
+#to_page_top {
+  font-size: 30px;
+  text-align: right;
+}
+
+#drop_down_arrow {
+  padding-left: 15px;
+  font-size: 40px;
+  color: black;
+}
+
+// PC側のヘッダー
+.pc-header {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  @media (max-width: 990px) {
+    display: none;
+  }
+}
+
+.pc-menu {
+  margin: auto 0;
+  display: flex;
+  list-style: none;
+}
+
+.pc-menu-item {
+  color: black;
+  &:hover {
+    color: black;
+  }
+}
+
+.pc-twitter-icon {
+  margin: auto 0 auto 30px;
+  width: 70px;
+  height: 70px;
+}
+
+// スマートフォン側のヘッダー
+.smartphone-header {
+  margin: auto 0;
+  @media (min-width: 990px) {
+    display: none;
+  }
+}
+
+.smartphone-menu {
+}
+
+.smartphone-menu-item {
+  font-size: 50px;
+  color: black;
+}
+
+.smartphone-twitter-icon {
+  width: 120px;
+  height: 120px;
+}
+
+.panel {
+  position: absolute;
+  border: 1px solid black;
+  width: 330px;
+  // 右側にmargin:50pxとpadding:15pxのスペースがある
+  // ただ、Qiitaを参考にする感じ、特に右側は合わせなくて良い。
+  right: 65px;
+  background: whitesmoke;
+  display: none;
+  z-index: 1000;
+  ul {
+    list-style: none;
+  }
+}
+
+.panel-inner {
+}
+
+.panel_item {
+  display: inline-block;
+  margin: 20px 0;
+}
+
+.panel_item a {
+  color: #fff;
+}
