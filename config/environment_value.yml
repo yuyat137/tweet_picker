@@ -1,6 +1,6 @@
 production:
   # AWS
-  twitter_callback_url: 'http://tweet-picker.com/oauth/callback?provider=twitter'
+  twitter_callback_url: 'https://tweet-picker.com/oauth/callback?provider=twitter'
   # heroku
   # twitter_callback_url: 'https://tweet-picker.herokuapp.com/oauth/callback?provider=twitter'
 development:
