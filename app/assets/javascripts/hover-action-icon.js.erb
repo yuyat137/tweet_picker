@@ -5,7 +5,7 @@ $(function() {
       $(this).children('.reply-icon-space').children('a').children('img').attr('src', "<%= image_path 'reply-hover.png' %>");
       $(this).children('.reply-icon-space').css({'background-color': 'rgba(0,255,255,0.1)'});
     },
-    function() { 
+    function() {
       //マウスカーソルが離れた時の処理
       $(this).children('.reply-icon-space').children('a').children('img').attr('src', "<%= image_path 'reply.png' %>");
       $(this).children('.reply-icon-space').css({'background-color': 'transparent'});
@@ -18,7 +18,7 @@ $(function() {
       $(this).children('.retweet-icon-space').css({'background-color': 'rgba(0,255,0,0.1)'});
       $(this).css({'color': 'rgba(0,200,0,1)'});
     },
-    function() { 
+    function() {
       //マウスカーソルが離れた時の処理
       $(this).children('.retweet-icon-space').children('img').attr('src', "<%= image_path 'retweet.png' %>");
       $(this).css({'color': 'black'});
@@ -32,7 +32,7 @@ $(function() {
       $(this).children('.favorite-icon-space').css({'background-color': 'rgba(255,0,0,0.1)'});
       $(this).css({'color': 'red'});
     },
-    function() { 
+    function() {
       //マウスカーソルが離れた時の処理
       $(this).children('.favorite-icon-space').children('img').attr('src', "<%= image_path 'favorite.png' %>");
       $(this).css({'color': 'black'});
