@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :twitter_lists, param: :access_id, only: %w[index show]
   get 'login' => 'user_sessions#new'
   get 'logout' => 'user_sessions#destroy'
+  get 'guest' => 'user_sessions#guest'
 end
