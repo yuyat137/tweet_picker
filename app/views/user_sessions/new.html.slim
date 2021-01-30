@@ -8,3 +8,5 @@
             = link_to 'Twitterリストへ', twitter_lists_path, class:'btn btn-success top-button'
           - else
             = link_to 'Twitterログイン', auth_at_provider_path(:provider => :twitter), class:'btn btn-info top-button'
+            br
+            = link_to 'ゲストユーザーでログイン', guest_path, class:'btn btn-success btn-sm top-button mt-3'
