@@ -1,12 +1,11 @@
 #top.container
   .text-center.w-100
-    p.sawarabi-gothic.mb-0 リストから話題のツイートをピックアップ
-    = image_tag('logo.png', width: '60%')
-    p.sawarabi-gothic.mb-0 全てのツイートを追いきれないあなたへ
-    .mt-5
-      - if logged_in?
-        = link_to 'Twitterリストへ', twitter_lists_path, class:'btn btn-indigo800_rsd top-button shadow test3 white'
-      - else
-        = link_to 'Twitterログイン', auth_at_provider_path(:provider => :twitter), class:'btn btn-indigo800_rsd'
-        br
-        = link_to 'ゲストでログイン', guest_path, class:'btn btn-teal800_rsd mt-3'
+      .mt-5.sawarabi-gothic.mb-0 リストから話題のツイートをピックアップ
+      = image_tag('logo.png', width: '60%', class: 'mt-3')
+      .my-5
+        - if logged_in?
+          = link_to 'Twitterリストへ', twitter_lists_path, class:'btn btn-indigo800_rsd top-button shadow test3 white'
+        - else
+          = link_to 'Twitterログイン', auth_at_provider_path(:provider => :twitter), class:'btn btn-indigo800_rsd'
+          br
+          = link_to 'ゲストでログイン', guest_path, class:'btn btn-teal800_rsd mt-4'

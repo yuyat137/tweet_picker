@@ -6,9 +6,9 @@ header.header.dark-indigo-back
       .pc-header
         ul.pc-menu
           li
-            = link_to 'ログアウト', logout_path, class:'pc-menu-item white'
-        = image_tag(current_user.profile_image_url, class:'pc-twitter-icon')
-      .smartphone-header
+            = link_to 'ログアウト', logout_path, class:'pc-menu-item white sawarabi-gothic'
+        = image_tag(current_user.profile_image_url, class:'pc-twitter-icon white-back')
+      .smartphone-header.white-back
         = link_to(image_tag(current_user.profile_image_url, class:'smartphone-twitter-icon'), '#', class:'js-dropdown')
         .panel.js-dropdown-menu
           ul.smartphone-menu.panel-inner
