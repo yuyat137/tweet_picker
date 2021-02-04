@@ -1,8 +1,3 @@
-#app_description {
-  height: 90vh;
-  background-color: #f0ffff;
-}
-
 #tops-image {
   width: 100%;
   height: 600px;
@@ -12,13 +7,14 @@
   background-repeat: no-repeat;
 }
 
-.top-image {
-  @media (max-width: 990px) {
-    width: 100%;
-  }
-  @media (min-width: 990px) {
-    width: 45%;
-  }
+#top-image {
+  width: 100%;
+  //@media (max-width: 990px) {
+  //  width: 100%;
+  //}
+  //@media (min-width: 990px) {
+  //  width: 45%;
+  //}
 }
 
 .top-button { @media (max-width: 990px) {
@@ -28,3 +24,4 @@
     font-size: 20px;
   }
 }
+

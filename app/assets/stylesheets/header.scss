@@ -1,7 +1,6 @@
 header {
-  background-color: #87cefa;
   @media (max-width: 990px) {
-    height: 150px;
+    height: 100px;
   }
   @media (min-width: 990px) {
     height: 80px;
@@ -32,7 +31,7 @@ header {
     font-size: 70px;
   }
   @media (min-width: 990px) {
-    font-size: 40px;
+    font-size: 30px;
   }
 }
 

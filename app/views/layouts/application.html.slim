@@ -3,12 +3,13 @@ html
   head
     title
       | Tweet-Picker
+    = favicon_link_tag 'favicon.png'
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    .wrap
+    #app.wrap.white-back
       - if logged_in?
         = render 'shared/after_login_header'
       - else
