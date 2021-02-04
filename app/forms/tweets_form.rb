@@ -22,8 +22,6 @@ class TweetsForm
     end
 
     oldest_tweet_time = tweets.min_by(&:created_at).created_at.in_time_zone.to_s(:datetime_jp)
-    newest_tweet_time = tweets.max_by(&:created_at).created_at.in_time_zone.to_s(:datetime_jp)
-    load_period = [oldest_tweet_time, newest_tweet_time]
 
     tweets.select! { |x| x.retweet? == false }
 
@@ -31,8 +29,7 @@ class TweetsForm
       tweets = filter_tweets_by_display_type(tweets)
     end
 
-    [tweets.max_by((display_tweets_num_value + 1) * 50, &:favorite_count), load_period]
-    # [tweets.max_by((display_tweets_num_value + 1) * 50, &:favorite_count), load_period]
+    [tweets.max_by((display_tweets_num_value + 1) * 50, &:favorite_count), oldest_tweet_time]
   end
 
   private

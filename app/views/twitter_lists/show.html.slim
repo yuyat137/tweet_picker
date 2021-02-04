@@ -3,7 +3,7 @@
     .text-center.mt-4
       h2.main-description = @list.list_name
       - if @load_period
-        small#load_period.sub-description = "取得ツイート: #{@load_period[0]}〜#{@load_period[1]}"
+        small#load_period.sub-description = "#{@load_period}までのツイートを取得しました"
     .text-center.mt-3.mb-4
       = form_with model: @tweets_form, url: twitter_list_path(@list.access_id), method: :get, local: true, id:'search_form' do |f|
         = f.select :read_tweets_num, TweetsForm.read_tweets_nums.keys.map { |k| [TweetsForm.read_tweets_nums_i18n[k], k]}, {}, class:'select-box-size mr-3'
