@@ -2,12 +2,6 @@
   min-height: 100vh;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
 a:hover {
   text-decoration: none;
 }
@@ -20,27 +14,30 @@ a:hover {
   @media (max-width: 990px) {
     font-size: 3.5rem;
   }
-  @media (min-width: 990px) {
-    font-size: 2rem;
-  }
+  // スマホの方次第で削除するか決める
+  //@media (min-width: 990px) {
+  //  font-size: 2rem;
+  //}
 }
 
 .sub-description {
   @media (max-width: 990px) {
     font-size: 2.5rem;
   }
-  @media (min-width: 990px) {
-    font-size: 1rem;
-  }
+  // スマホの方次第で削除するか決める
+  //@media (min-width: 990px) {
+  //  font-size: 1rem;
+  //}
 }
 
 .btn-size {
   @media (max-width: 990px) {
     font-size: 2.5rem;
   }
-  @media (min-width: 990px) {
-    font-size: 1rem;
-  }
+  // スマホの方次第で削除するか決める
+  //@media (min-width: 990px) {
+  //  font-size: 1rem;
+  //}
 }
 
 .select-box-size {

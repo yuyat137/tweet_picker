@@ -1,27 +1,8 @@
-#tops-image {
-  width: 100%;
-  height: 600px;
-  background-image: url('top-image.jpg');
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-#top-image {
-  width: 100%;
-  //@media (max-width: 990px) {
-  //  width: 100%;
-  //}
-  //@media (min-width: 990px) {
-  //  width: 45%;
-  //}
-}
-
-.top-button { @media (max-width: 990px) {
+.top-button {
+  @media (max-width: 990px) {
     font-size: 40px;
   }
   @media (min-width: 990px) {
     font-size: 20px;
   }
 }
-

@@ -9,7 +9,7 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    #app.wrap.milky-white-back
+    #app.milky-white-back
       - if logged_in?
         = render 'shared/after_login_header'
       - else
