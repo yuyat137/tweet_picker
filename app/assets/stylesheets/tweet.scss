@@ -1,23 +1,9 @@
-.media {
-  width: 100%;
-  object-fit: cover;
-  @media (max-width: 990px) {
-    max-height: 600px;
-  }
-  @media (min-width: 990px) {
-    max-height: 350px;
-  }
-}
-
-.embed_youtube {
-  width: 100%;
-}
-
 .action-space {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 // 検索
 #search_form {
   display: flex;
@@ -25,12 +11,18 @@
   align-items: center;
 }
 
-#load_period {
-  color: blue;
-}
-
 // ツイートいいね順
 #no_tweets_alert {
   margin-top: 90px;
   //font-size: 30px;
+}
+
+.media-image{
+  max-height: 350px;
+}
+
+.tweet-link {
+  &:hover {
+    color: black;
+  }
 }

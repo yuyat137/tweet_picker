@@ -6,6 +6,10 @@
   list-style: none;
 }
 
+.object-fit-cover {
+  object-fit: cover;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -25,6 +29,3 @@ a:hover {
   width: 15%;
 }
 
-#to_page_top {
-  text-align: right;
-}

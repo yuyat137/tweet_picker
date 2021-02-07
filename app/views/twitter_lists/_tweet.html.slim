@@ -1,6 +1,6 @@
 - if not tweet.user.protected?
   div id="tweet-#{tweet.id}" class='col-lg-4 col-12 mb-3'
-    = link_to tweet_url(tweet), target: :_blank, class:'black d-block' do
+    = link_to tweet_url(tweet), target: :_blank, class:'black d-block tweet-link' do
       .px-2.white-back.rounded.border
         .d-flex.justify-content-between
           .mt-2
