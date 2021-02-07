@@ -10,37 +10,11 @@ a:hover {
   overflow: hidden;
 }
 
-.sub-description {
-  @media (max-width: 990px) {
-    font-size: 2.5rem;
-  }
-  // スマホの方次第で削除するか決める
-  //@media (min-width: 990px) {
-  //  font-size: 1rem;
-  //}
-}
-
-.btn-size {
-  @media (max-width: 990px) {
-    font-size: 2.5rem;
-  }
-  // スマホの方次第で削除するか決める
-  //@media (min-width: 990px) {
-  //  font-size: 1rem;
-  //}
-}
 
 .select-box-size {
   width: 15%;
-  //@media (max-width: 990px) {
-  //  font-size: 2rem;
-  //}
-  //@media (min-width: 990px) {
-  //  font-size: 1rem;
-  //}
 }
 
 #to_page_top {
-  font-size: 30px;
   text-align: right;
 }

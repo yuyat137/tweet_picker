@@ -27,12 +27,6 @@ header {
   &:hover {
     color: black;
   }
-  @media (max-width: 990px) {
-    font-size: 70px;
-  }
-  @media (min-width: 990px) {
-    font-size: 30px;
-  }
 }
 
 .header-left {
@@ -44,13 +38,11 @@ header {
 }
 
 #to_page_top {
-  font-size: 30px;
   text-align: right;
 }
 
 #drop_down_arrow {
   padding-left: 15px;
-  font-size: 40px;
   color: black;
 }
 
@@ -95,7 +87,6 @@ header {
 }
 
 .smartphone-menu-item {
-  font-size: 50px;
   color: black;
 }
 

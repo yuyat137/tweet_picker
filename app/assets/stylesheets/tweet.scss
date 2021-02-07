@@ -14,10 +14,10 @@
 .user-info {
   width: 92%;
   @media (max-width: 990px) {
-    font-size: 1.5em;
+    //font-size: 1.5em;
   }
   @media (min-width: 990px) {
-    font-size: 0.5em;
+    //font-size: 0.5em;
   }
 }
 
@@ -26,7 +26,7 @@
 }
 
 .user-name {
-  font-size: 1.5em;
+  //font-size: 1.5em;
 }
 
 .tweet-logo {
@@ -59,21 +59,21 @@
   margin-top: 10px;
   word-wrap: break-word;
   @media (max-width: 990px) {
-    font-size: 2em;
+    //font-size: 2em;
   }
   @media (min-width: 990px) {
-    font-size: 1em;
+    //font-size: 1em;
   }
 }
 
 .tweeted_datetime {
   margin-left: auto;
   @media (max-width: 990px) {
-    font-size: 2em;
+    //font-size: 2em;
     height: 70px;
   }
   @media (min-width: 990px) {
-    font-size: 1em;
+    //font-size: 1em;
   }
 }
 
@@ -236,10 +236,10 @@
   height: 30px;
   line-height: 30px;
   @media (max-width: 990px) {
-    font-size: 30px;
+    //font-size: 30px;
   }
   @media (min-width: 990px) {
-    font-size: 13px;
+    //font-size: 13px;
   }
 }
 
@@ -257,5 +257,5 @@
 // ツイートいいね順
 #no_tweets_alert {
   margin-top: 90px;
-  font-size: 30px;
+  //font-size: 30px;
 }
