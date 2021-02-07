@@ -1,17 +1,48 @@
-header.header.dark-indigo-back
-  .header-inner.nav-height
-    .header-left
-      = link_to 'Tweet-Picker', twitter_lists_path, id:'header-title', class: 'text-white'
-    .header-right
-      .pc-header
-        ul.pc-menu
+header.dark-indigo-back
+  .mx-4.h-100.d-flex.justify-content-between
+    .my-auto
+      = link_to 'Tweet-Picker', twitter_lists_path, class: 'text-white h3'
+    .pc-header
+      .h-100.d-flex.justify-content-end
+        ul.d-flex.my-auto.list-style-no
           li
-            = link_to 'ログアウト', logout_path, class:'pc-menu-item white sawarabi-gothic'
-        = image_tag(current_user.profile_image_url, class:'pc-twitter-icon white-back')
-      .smartphone-header.white-back
-        = link_to(image_tag(current_user.profile_image_url, class:'smartphone-twitter-icon'), '#', class:'js-dropdown')
-        .panel.js-dropdown-menu
-          ul.smartphone-menu.panel-inner
-            li
-              = link_to 'ログアウト', logout_path, class:'smartphone-menu-item js-dropdown-menu panel_item'
-        = icon('fas', 'caret-down', id: 'drop_down_arrow')
+            = link_to 'ログアウト', logout_path, class:'hover-grey white sawarabi-gothic mr-4'
+        .h-100.p-2
+          = image_tag(current_user.profile_image_url, class:'h-100 rounded-circle white-back')
+    .smartphone-header.h-100.py-3
+      .collapse.navbar-collapse.target
+        .nav.navbar-nav
+          li text1
+          li text2
+          li text3
+    //.smartphone-header.h-100.py-3
+      = link_to(image_tag(current_user.profile_image_url, class:'h-100 rounded-circle white-back'), '#', class:'js-dropdown')
+      .panel.js-dropdown-menu
+        ul.panel-inner
+          li
+            = link_to 'ログアウト', logout_path, class:'black js-dropdown-menu my-2 d-inline-block'
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand href="#"  Navbar
+  button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button" 
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link href="#" 
+          | Home
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link href="#"  Link
+      li.nav-item.dropdown
+        a#navbarDropdown.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+          | Dropdown
+        .dropdown-menu aria-labelledby="navbarDropdown" 
+          a.dropdown-item href="#"  Action
+          a.dropdown-item href="#"  Another action
+          .dropdown-divider
+          a.dropdown-item href="#"  Something else here
+      li.nav-item
+        a.nav-link.disabled href="#"  Disabled
+    form.form-inline.my-2.my-lg-0
+      input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="search" /
+      button.btn.btn-outline-success.my-2.my-sm-0 type="submit"  Search

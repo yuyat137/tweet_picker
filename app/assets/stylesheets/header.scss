@@ -7,100 +7,22 @@ header {
   }
 }
 
-.header {
-  border-bottom: 1px solid #ddd;
-}
-
-.header-inner {
-  max-width: 90%;
-  height: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: 50px;
-  margin-left: 50px;
-  display: flex;
-  justify-content: space-between;
-}
-
-#header-title {
-  color: black;
-  &:hover {
-    color: black;
-  }
-}
-
-.header-left {
-  margin: auto 0;
-}
-
-.header-right {
-  display: flex;
-}
-
-#to_page_top {
-  text-align: right;
-}
-
-#drop_down_arrow {
-  padding-left: 15px;
-  color: black;
-}
-
-// PC側のヘッダー
 .pc-header {
-  display: flex;
-  align-items: center;
-  height: 100%;
   @media (max-width: 990px) {
     display: none;
   }
 }
 
-.pc-menu {
-  margin: auto 0;
-  display: flex;
-  list-style: none;
-}
-
-.pc-menu-item {
-  &:hover {
-    color: grey;
-  }
-}
-
-.pc-twitter-icon {
-  margin: auto 0 auto 30px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-// スマートフォン側のヘッダー
 .smartphone-header {
-  margin: auto 0;
   @media (min-width: 990px) {
     display: none;
   }
-}
-
-.smartphone-menu {
-}
-
-.smartphone-menu-item {
-  color: black;
-}
-
-.smartphone-twitter-icon {
-  width: 120px;
-  height: 120px;
 }
 
 .panel {
   position: absolute;
   border: 1px solid black;
   width: 330px;
-  // 右側にmargin:50pxとpadding:15pxのスペースがある
-  // ただ、Qiitaを参考にする感じ、特に右側は合わせなくて良い。
   right: 65px;
   background: whitesmoke;
   display: none;
@@ -108,16 +30,4 @@ header {
   ul {
     list-style: none;
   }
-}
-
-.panel-inner {
-}
-
-.panel_item {
-  display: inline-block;
-  margin: 20px 0;
-}
-
-.panel_item a {
-  color: #fff;
 }
