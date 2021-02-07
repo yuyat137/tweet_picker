@@ -1,5 +1,5 @@
 h4.text-center.mt-4.pt-1 リストを選択してください
-.row
+.row.w-100
   .col-lg-6.offset-lg-3.col-10.offset-1
     table.w-100.mt-4#table_style
       tbody
@@ -11,7 +11,7 @@ h4.text-center.mt-4.pt-1 リストを選択してください
                 -if list.mode == 'private'
                   = icon('fas', 'lock', class:'ml-2')
                 div.mt-1
-                  = image_tag(list.profile_image_url, class: 'rounded-circle', height: '40')
+                  = image_tag(list.profile_image_url, class: 'rounded-circle', height: 40, width: 40)
                   = list.name
                   = '@' + list.screen_name
 .text-center.my-5
