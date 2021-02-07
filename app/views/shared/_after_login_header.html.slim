@@ -1,4 +1,4 @@
-header.dark-indigo-back
+//header.dark-indigo-back
   .mx-4.h-100.d-flex.justify-content-between
     .my-auto
       = link_to 'Tweet-Picker', twitter_lists_path, class: 'text-white h3'
@@ -21,28 +21,37 @@ header.dark-indigo-back
         ul.panel-inner
           li
             = link_to 'ログアウト', logout_path, class:'black js-dropdown-menu my-2 d-inline-block'
+//header.dark-indigo-back
+  nav.navbar.navbar-expand-lg.navbar-dark
+    = link_to 'Tweet-Picker', twitter_lists_path, class: 'text-white h3'
+    button.navbar-toggler aria-controls='navbarSupportedContent' aria-expanded='false' aria-label=('Toggle navigation') data-target='#navbarSupportedContent' data-toggle='collapse' type='button' 
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      .mr-auto
+      ul.navbar-nav
+        li.nav-item
+          = link_to 'ログアウト', logout_path, class:'nav-link text-white white sawarabi-gothic mr-4'
+        li.nav-item
+          = link_to 'ログアウト', logout_path, class:'nav-link text-white white sawarabi-gothic mr-4'
+          //= image_tag(current_user.profile_image_url, class:'h-100 nav-link rounded-circle white-back')
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
   a.navbar-brand href="#"  Navbar
-  button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button" 
+  button.navbar-toggler aria-controls="navbarNavDropdown" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarNavDropdown" data-toggle="collapse" type="button" 
     span.navbar-toggler-icon
-  #navbarSupportedContent.collapse.navbar-collapse
-    ul.navbar-nav.mr-auto
+  #navbarNavDropdown.collapse.navbar-collapse
+    ul.navbar-nav
       li.nav-item.active
         a.nav-link href="#" 
           | Home
           span.sr-only (current)
       li.nav-item
-        a.nav-link href="#"  Link
+        a.nav-link href="#"  Features
+      li.nav-item
+        a.nav-link href="#"  Pricing
       li.nav-item.dropdown
-        a#navbarDropdown.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
-          | Dropdown
-        .dropdown-menu aria-labelledby="navbarDropdown" 
+        a#navbarDropdownMenuLink.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+          | Dropdown link
+        .dropdown-menu aria-labelledby="navbarDropdownMenuLink" 
           a.dropdown-item href="#"  Action
           a.dropdown-item href="#"  Another action
-          .dropdown-divider
           a.dropdown-item href="#"  Something else here
-      li.nav-item
-        a.nav-link.disabled href="#"  Disabled
-    form.form-inline.my-2.my-lg-0
-      input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="search" /
-      button.btn.btn-outline-success.my-2.my-sm-0 type="submit"  Search

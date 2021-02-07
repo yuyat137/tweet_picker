@@ -1,7 +1,6 @@
-h4.text-center.mt-5 リストを選択してください
+h4.text-center.mt-4.pt-1 リストを選択してください
 .row
   .col-lg-6.offset-lg-3.col-10.offset-1
-    //table.mx-auto.mt-5#table_style
     table.w-100.mt-4#table_style
       tbody
         - @twitter_lists.each do |list|
@@ -11,7 +10,7 @@ h4.text-center.mt-5 リストを選択してください
                 = list.list_name
                 -if list.mode == 'private'
                   = icon('fas', 'lock', class:'ml-2')
-                div.my-1
+                div.mt-1
                   = image_tag(list.profile_image_url, class: 'rounded-circle', height: '40')
                   = list.name
                   = '@' + list.screen_name
