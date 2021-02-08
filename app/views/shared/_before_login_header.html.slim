@@ -6,4 +6,4 @@ nav.navbar.navbar-expand-lg.navbar-dark.dark-indigo-back.py-3.px-4
     .mr-auto
     ul.navbar-nav
       li.nav-item
-        = link_to 'ログイン', login_path, class:'nav-link text-white white sawarabi-gothic mr-4'
+        = link_to 'ログイン', auth_at_provider_path(:provider => :twitter), class:'nav-link text-white white sawarabi-gothic mr-4'
