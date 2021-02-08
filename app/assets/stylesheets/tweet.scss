@@ -1,22 +1,3 @@
-.action-space {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-// 検索
-#search_form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-// ツイートいいね順
-#no_tweets_alert {
-  margin-top: 90px;
-  //font-size: 30px;
-}
-
 .media-image{
   max-height: 350px;
 }
@@ -25,4 +6,9 @@
   &:hover {
     color: black;
   }
+}
+
+.action-color-space {
+  width: 30px;
+  height: 30px;
 }
