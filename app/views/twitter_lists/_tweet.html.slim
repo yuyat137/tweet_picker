@@ -1,35 +1,32 @@
 - if not tweet.user.protected?
-  div id="tweet-#{tweet.id}" class='tweet col-xs-12 col-sm-12　col-md-6 col-lg-4 col-xl-4 mb-3'
-    = link_to tweet_url(tweet), target: :_blank, style: 'color:black;', class:'link-area' do
-      .tweet-style
-        .user-info.d-inline-block.mt-1
-          .d-inline-block.h-100
-            = image_tag("#{tweet.user.profile_image_url}", class:'rounded-circle twitter-icon')
-          .d-inline-block.h-100.user-name-field
-              b.ml-1.user-name
-                = tweet.user.name
-              br
-              .ml-1.user-name
-                = '@' + tweet.user.screen_name
-        .tweet-logo.d-inline-block
-          = image_tag('Twitter_Logo_Blue.png', class: 'twitter-logo')
-        .text-style.mb-3
+  div id="tweet-#{tweet.id}" class='col-lg-4 col-12 mb-3'
+    = link_to tweet_url(tweet), target: :_blank, class:'black d-block tweet-link' do
+      .px-2.white-back.rounded.border
+        .d-flex.justify-content-between
+          .mt-2
+            .d-inline-block
+              = image_tag("#{tweet.user.profile_image_url}", class:'rounded-circle', width: 40)
+            .d-inline-block.h-100.align-middle
+              div
+                small.font-weight-bold.ml-1
+                  = tweet.user.name
+              div
+                small.align-top.ml-1
+                  = '@' + tweet.user.screen_name
+          .mt-2.d-inline-block
+            = image_tag('Twitter_Logo_Blue.png', width: 40)
+        .text-break.mb-3.mt-2
           = simple_format(body(tweet))
           = embed_youtube(tweet)
           = media(tweet)
-        .action-space
-          .reply-info
-            .reply-icon-space
-              = link_to(image_tag('reply.png', class: 'reply-icon'), reply_url(tweet), target: :_blank)
-          = link_to retweet_url(tweet), target: :_blank, class:'retweet-info', style: "color:black;" do
-            .retweet-icon-space
-              = image_tag('retweet.png', class: 'retweet-icon')
-            .action-count
-              = tweet.attrs[:retweet_count]
-          = link_to favorite_url(tweet), target: :_blank, class: 'favorite-info', style: "color:black;" do
-            .favorite-icon-space
-              = image_tag('favorite.png', class: 'favorite-icon')
-            .action-count
-              = tweet.attrs[:favorite_count]
-          .tweeted_datetime
+        .d-flex.justify-content-center.align-items-center.mb-2
+          = link_to reply_url(tweet), target: :_blank, class: 'reply-info' do
+            = image_tag('reply.png', class: 'rounded-circle mr-4 ml-2', width: 16)
+          = link_to retweet_url(tweet), target: :_blank, class:'retweet-info black' do
+            = image_tag('retweet.png', class: 'mr-2', width:20)
+            = tweet.attrs[:retweet_count]
+          = link_to favorite_url(tweet), target: :_blank, class: 'favorite-info black' do
+            = image_tag('favorite.png', class: 'ml-4 mr-2', width:15)
+            = tweet.attrs[:favorite_count]
+          .ml-auto.align-middle
             = l(tweet.created_at)

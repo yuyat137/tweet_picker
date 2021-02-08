@@ -1,20 +1,18 @@
-script
-.text-center.mt-5
-  h2.main-description リストを選択してください
-  .row
-    .col-xs-12.col-sm-12.col-md-12.col-lg-12.col-xl-12
-      table.mx-auto.mt-5#table_style
-        tbody
-          - @twitter_lists.each do |list|
-            tr.list-row
-              td.text-left.table-link-space
-                = link_to twitter_list_path(list.access_id), class: 'table-link ml-2' do
-                  = list.list_name
-                  -if list.mode == 'private'
-                    = icon('fas', 'lock', class:'ml-2')
-                  br
-                  = image_tag(list.profile_image_url, class:'list-icon')
+h4.text-center.mt-4.pt-1 リストを選択してください
+.row.w-100
+  .col-lg-6.offset-lg-3.col-10.offset-1
+    table.w-100.mt-4#table_style
+      tbody
+        - @twitter_lists.each do |list|
+          tr.list-row
+            td.text-left
+              = link_to twitter_list_path(list.access_id), class: 'table-link ml-2' do
+                = list.list_name
+                -if list.mode == 'private'
+                  = icon('fas', 'lock', class:'ml-2')
+                div.mt-1
+                  = image_tag(list.profile_image_url, class: 'rounded-circle', height: 40, width: 40)
                   = list.name
                   = '@' + list.screen_name
 .text-center.my-5
-  = link_to('リスト情報を最新にする', twitter_lists_update_index_path, class:'btn btn-primary btn-size')
+  = link_to('リスト情報を最新にする', twitter_lists_update_index_path, class:'btn btn-indigo800_rsd h1-h6')

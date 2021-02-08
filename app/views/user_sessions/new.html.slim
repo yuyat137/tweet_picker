@@ -1,12 +1,14 @@
-.row
-  .col-12
+.row.w-100.m-0
+  //.col-lg-6.offset-lg-3.col-md-10.offset-md-1
+  .col-lg-6.offset-lg-3.col-10.offset-1.p-0
     .text-center
-      #app_description
-        = image_tag('top-image-transparent.jpg', class: 'top-image')
-        .text-center.mb-5.mt-3.mx-auto
-          - if logged_in?
-            = link_to 'Twitterリストへ', twitter_lists_path, class:'btn btn-success top-button'
-          - else
-            = link_to 'Twitterログイン', auth_at_provider_path(:provider => :twitter), class:'btn btn-info btn-sm top-button'
-            br
-            = link_to 'ゲストユーザーでログイン', guest_path, class:'btn btn-success btn-sm top-button mt-3'
+      .h2-h5.mt-5.sawarabi-gothic.mb-3
+        | リストから話題のツイートをピックアップ
+      = image_tag('logo.png', class: 'w-100')
+      .my-5
+        - if logged_in?
+          = link_to 'Twitterリストへ', twitter_lists_path, class:'btn btn-indigo800_rsd h1-h6'
+        - else
+          = link_to 'Twitterログイン', auth_at_provider_path(:provider => :twitter), class:'btn btn-indigo800_rsd h1-h6'
+          br
+          = link_to 'ゲストでログイン', guest_path, class:'btn btn-teal800_rsd mt-4 h1-h6'
