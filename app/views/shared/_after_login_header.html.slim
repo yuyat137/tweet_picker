@@ -1,17 +1,11 @@
-header.header
-  .header-inner.nav-height.nav-color
-    .header-left
-      = link_to 'Tweet-Picker', twitter_lists_path, id:'header-title'
-    .header-right
-      .pc-header
-        ul.pc-menu
-          li
-            = link_to 'ログアウト', logout_path, class:'pc-menu-item'
-        = image_tag(current_user.profile_image_url, class:'pc-twitter-icon')
-      .smartphone-header
-        = link_to(image_tag(current_user.profile_image_url, class:'smartphone-twitter-icon'), '#', class:'js-dropdown')
-        .panel.js-dropdown-menu
-          ul.smartphone-menu.panel-inner
-            li
-              = link_to 'ログアウト', logout_path, class:'smartphone-menu-item js-dropdown-menu panel_item'
-        = icon('fas', 'caret-down', id: 'drop_down_arrow')
+nav.navbar.navbar-expand-lg.navbar-dark.dark-indigo-back.py-3.px-4
+  = link_to 'Tweet-Picker', twitter_lists_path, class: 'text-white h3'
+  button.navbar-toggler aria-controls='navbarNavDropdown' aria-expanded='false' aria-label=('Toggle navigation') data-target='#navbarNavDropdown' data-toggle='collapse' type='button'
+    span.navbar-toggler-icon
+  #navbarNavDropdown.collapse.navbar-collapse
+    .mr-auto
+    ul.navbar-nav
+      li.nav-item
+        = link_to 'ログアウト', logout_path, class:'nav-link text-white white sawarabi-gothic mr-4'
+      li.nav-item
+        = image_tag(current_user.profile_image_url, class:'nav-link rounded-circle white-back p-0', height: 50, width: 50)

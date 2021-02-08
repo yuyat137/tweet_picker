@@ -14,7 +14,7 @@ module TweetHelper
     if tweet.media.first.class == Twitter::Media::Photo
       # 画像表示
       # TODO: 複数画像を添付してる場合にも対応する
-      image_tag('https://pbs.twimg.com' + tweet.media.first.media_url.path, class: 'media')
+      image_tag('https://pbs.twimg.com' + tweet.media.first.media_url.path, class: 'media-image object-fit-cover w-100')
     elsif tweet.media.first.class == Twitter::Media::Video
       # 動画表示
       display_video(tweet)
@@ -25,7 +25,7 @@ module TweetHelper
     if tweet.media.first.video_info.variants.first[:content_type] == 'application/x-mpegURL'
 
     else
-      video_tag('https://video.twimg.com' + tweet.media.first.video_info.variants.first.url.path, muted: true, controls: true, class: 'media')
+      video_tag('https://video.twimg.com' + tweet.media.first.video_info.variants.first.url.path, muted: true, controls: true, class: 'w-100')
     end
   end
 
@@ -47,7 +47,7 @@ module TweetHelper
 
     youtube_video_id.gsub!(/'.*/, '')
     content_tag 'iframe', nil, src: ('https://www.youtube.com/embed/' + youtube_video_id), \
-                               frameborder: 0, gesture: 'media', allow: 'encrypted-media', allowfullscreen: true, class: 'embed_youtube'
+                               frameborder: 0, gesture: 'media', allow: 'encrypted-media', allowfullscreen: true, class: 'w-100'
   end
 
   def full_text(tweet)
