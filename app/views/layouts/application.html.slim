@@ -9,13 +9,8 @@ html
     meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-    /! Global site tag (gtag.js) - Google Analytics
-    script async="" src="https://www.googletagmanager.com/gtag/js?id=G-GRLLW0ZCQT"
-    javascript:
-      | window.dataLayer = window.dataLayer || [];
-      | function gtag(){dataLayer.push(arguments);}
-      | gtag('js', new Date());
-      | gtag('config', 'G-GRLLW0ZCQT');
+    - if Rails.env.production?
+      = render './google_analytics'
 
   body
     #app.milky-white-back
