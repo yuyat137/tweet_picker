@@ -7,6 +7,12 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"
+    meta property="og:title" content="Tweet-Picker"
+    meta property="og:description" content="リストから人気ツイートをピックアップ"
+    meta property="og:url" content="https://tweet-picker.com/"
+    meta name="twitter:card" content="summary_large_image"
+    meta property="og:image" content="https://tweet-picker.com/ogp.png"
+
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     - if Rails.env.production?
