@@ -39,6 +39,7 @@ class TweetsForm
     3.times do
       tweets = user.twitter.list_timeline(list.list_id, count: 200, tweet_mode: 'extended')
       break if tweets.length > 30
+
       tweets = []
     end
     tweets
