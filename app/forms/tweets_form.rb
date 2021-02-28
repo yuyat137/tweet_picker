@@ -12,8 +12,7 @@ class TweetsForm
   enum display_tweets_num: { display_50: 0, display_100: 1, display_150: 2 }.freeze
 
   def search(list, user)
-    tweets = user.twitter.list_timeline(list.list_id, count: 200, tweet_mode: 'extended')
-
+    tweets = initial_load(list, user)
     return if tweets.blank?
 
     read_tweets_num_value.times do
@@ -33,6 +32,17 @@ class TweetsForm
   end
 
   private
+
+  def initial_load(list, user)
+    # NOTE: 恐らくtwitter側(もしくはgem)の問題で、1回目でツイートを取得できないことがあり、それに対応したメソッド
+    tweets = []
+    3.times do
+      tweets = user.twitter.list_timeline(list.list_id, count: 200, tweet_mode: 'extended')
+      break if tweets.length > 30
+      tweets = []
+    end
+    tweets
+  end
 
   def filter_tweets_by_display_type(tweets)
     tweets_per_user = {}
