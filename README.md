@@ -14,3 +14,12 @@ Twitterで膨大な量のツイートを追えない人に
 
 ## インフラ構成図
 <img width="60%" src="aws-tweet-picker.png">
+
+# 開発者用
+
+DBをリセットした場合、以下のようにゲストユーザーを作成してください
+
+```ruby
+User.create(email: "guest", password: "password", password_confirmation: "password",  profile_image_url:"guest.png")
+```
+
